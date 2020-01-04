@@ -54,6 +54,14 @@ $(document).ready(function(){
     });
 });
 
+$("#checkAll").click(function(){
+    $('input:checkbox').not(this).prop('checked', this.checked);
+   
+    $(".check").each(function(){
+        console.log($(this).val());
+        favFood.push($(this).val());
+    })
+});
 
 $("#subscribeSubmitBtn").on("click", function(){
    
