@@ -60,6 +60,7 @@ $("#subscribeSubmitBtn").on("click", function(){
     var obj={
         name: $("#signup_name").val(),
         email: $("#signup_email").val(),
+        password: $("#signup_password").val(),
         address: $("#signup_city").val()+", "+$("#signup_state").val(),
         fav_food: favFood,
     };
