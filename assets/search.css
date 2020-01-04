@@ -117,7 +117,7 @@ margin-top: 18px;
     height: 100px;
 }
 .section-form {
-    padding: 80px;
+    padding: 40px 80px;
 }
 #result_container .row,#modal_2_content .row  {
     display: -ms-flexbox;
@@ -192,3 +192,11 @@ label{
     margin: 3% 73%;
 }
 
+#modal_4 .contact-form{
+    width: 100%;
+}
+
+#modal_4 h2{
+    font-weight: 500;
+    font-size: 100%;
+}

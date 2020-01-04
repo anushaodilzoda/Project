@@ -44,4 +44,18 @@ $("#searcharea").on("change",function(){
     }
 });
 
+// Tsolmon
+
+$("#subscribeSubmitBtn").on("click", function(){
+    var name="Elisa";
+    var obj={
+        name: this.name,
+        email: "hakuban@yahoo.com",
+        fav_food: ["one", "two", "three"]
+    };
+
+    localStorage.setItem("member_"+name,JSON.stringify(obj));
+
+  })
+
 
