@@ -2,14 +2,14 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">=
         <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
         <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
         <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
         <link rel="stylesheet" type="text/css" href="resources/css/style.css">
         <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
         <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
-
+        <link rel="stylesheet" href="assets/search.css">
         <title>Omnifood</title>
 
     </head>
@@ -22,7 +22,7 @@
                        <li><a href="#">Food delivery</a></li>
                        <li><a href="#">How it works</a></li>
                        <li><a href="#">Our cities</a></li>
-                       <li><a href="#">Sign up</a></li>
+                       <li><a href="#" id="subscribe-btn" data-toggle="modal" data-target="#modal_4">Sign up</a></li>
 
                     </ul>
                     
@@ -34,7 +34,132 @@
                 <a class="btn btn-ghost" href="#">Show me more</a>
             </div>
 
-        </header>
+    </header>
+   
+        <div id="home_search_box">
+            <h4 id="search_box_label">Search restaurants</h4>
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Search Area</label>
+                <div class="col-sm-3">
+                    <select id="searcharea" required>
+                        <option selected value="Current Location">Current Location</option>
+                        <option id="zipcode_option">Zip Code</option>
+                    </select>
+                </div>
+                <label for="colFormLabel" class="col-sm-1 col-form-label">Type</label>
+                <div class="col-sm-3">
+                  <select id="type" required>
+                    <option selected value="All">All</option>
+                    <option>American</option>
+                    <option>Burgers</option>
+                    <option>Chinese</option>
+                    <option>Italian</option>
+                    <option>Japanese</option>
+                    <option>Mexican</option>
+                    <option>Pasta</option>
+                    <option>Pizza</option>
+                    <option>Sandwiches</option>
+                    <option>Seafood</option>
+                    <option>Steak</option>
+                    <option>Sushi</option>
+                  </select>
+                  </div>
+            </div>
+
+            <div class="form-group row" id="zipcode_section">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Zip Code</label>
+                <div class="col-sm-3">
+                    <input class="form-control" id="zipcode" placeholder="Enter the zip code" required>
+                </div>
+            </div>
+             <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Distance (miles)</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="distance" value="1">
+                    </div>
+
+                      <label for="colFormLabel" class="col-sm-1 col-form-label">Name</label>
+                <div class="col-sm-3">
+                        <input type="text" class="form-control" id="place_name" value="All">
+                </div>
+             </div>
+             <a class="btn btn-ghost" href="search.html" id="home_search-btn">Search</a>    
+        </div>
+
+        <!-- subscribe modal-->
+        <div id="modal_4" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+           <div class="modal-dialog modal-lg">
+             <div class="modal-content">
+               <section class="section-form">
+                   <div class="row">
+                       <h2>Get an update on your community favorites!</h2>
+                   </div>
+                   <div class="row">
+                       <form method="post" action="#" class="contact-form">
+                           <div class="row">
+                           <div class="col span-1-of-3">
+                               <label for="name">Name</label>
+                           </div>
+                           <div class="col span-2-of-3">
+                           <input type="text" name="name" id="name" placeholder="Your name" required>
+                           </div>
+                           </div>
+                           <div class="row">
+                                   <div class="col span-1-of-3">
+                                       <label for="email">Email</label>
+                                   </div>
+                                   <div class="col span-2-of-3">
+                                   <input type="email" name="email" id="email" placeholder="Your email" required>
+                               </div>
+                           </div> 
+                           <div class="row">
+                                   <div class="col span-1-of-3">
+                                       <label for="find-us">What types of food would you like to eat?</label>
+                                   </div>
+                                   <div class="col span-2-of-3">
+                                       <input type="radio" class="rad" name="Item1" value="American" />American
+                                       <br />
+                                       <input type="radio" class="rad" name="Item2" value="Burgers" />Burgers
+                                       <br />
+                                       <input type="radio" class="rad" name="Item3" value="Chinese" />Chinese
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Italian" />Italian
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Japanese" />Japanese
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Mexican" />Mexican
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Pasta" />Pasta
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Pizza" />Pizza
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Sandwiches" />Sandwiches
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Seafood" />Seafood
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Steak" />Steak
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Sushi" />Sushi
+                                       <br />
+                               </div>
+                           </div> 
+           
+                   <div class="row">
+                       <div class="col span-1-of-3">
+                           <label>&nbsp;</label>
+                      </div>
+                        <div class="col span-2-of-3">
+                       <button type="submit">Submit</button>
+                   </div>
+               </div>      
+                       </form>
+                   </div>
+                   
+               </section>
+             </div>
+           </div>
+         </div>
+
         <section class="section-features">
             <div class="row">
              
@@ -149,33 +274,6 @@
             </ul>
            
         </section>
-        <section class="section-steps">
-            <div class="row">
-                <h2>How it works &mdash; Simple as 1, 2, 3</h2>
-
-            </div>
-            <div class="row">
-                <div class="col span-1-of-2">
-                    <img src="resources/img/app-iPhone.png" alt="omnifood app on iphone" class="app-screen">
-                </div>
-                <div class="col span-1-of-2">
-                    <div class="work-step">
-                        <div>1</div>
-                        <p>Choose the subscription plan that best fits your needs and sign up today.</p>
-                    </div>
-                    <div class="work-step">
-                            <div>2</div>
-                            <p>Order your delicious meal using our mobile app or website. Or you can even call us!</p>
-                        </div>
-                        <div class="work-step">
-                                <div>3</div>
-                                <p>Enjoy your meal after less than 20 minutes. See you the next time!</p>
-                            </div>
-                    <a href="#" class="btn-app"><img src="resources/img/app-button.jpg" alt="App Store Button"></a>
-                    <a href="#" class="btn-app"><img src="resources/img/download-app-android.png" alt="Play Store Button"></a>
-                </div>
-            </div>
-        </section >
         <section class="section-cities">
                 <div class="row">
                 <h2>We're curruntly in these cities</h2>
@@ -456,7 +554,11 @@
                 </p>
             </div>
         </footer>
-      
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="assets/main.js"></script>
+<script src="assets/functions.js"></script>
     </body>
 </html>
 
