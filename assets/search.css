@@ -1,0 +1,194 @@
+#search_body,#search_box{
+    background-color: #555;
+    padding-top: 5%;
+    padding-left: 2%;
+    padding-bottom: 2%;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.91)), url(images/restaurant.jpg);
+    background-size: cover;
+    color: white;
+    background-attachment: fixed;
+}
+
+#home_search_box{
+    padding: 5% 10%;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.91)), url(images/restaurant.jpg);
+    background-size: cover;
+    color: white;
+    background-attachment: fixed;
+}
+
+.container{
+    margin-top: 30px;
+    padding-bottom: 100px;
+}
+.container_div{
+    margin: 10px;
+    margin-top: 20px !important;
+    padding: 10px 20px;
+    color: #315375;
+    line-height: 2;
+    background: #e4e2e2bf;
+    margin-bottom: 10px;
+}
+
+.googleImg, .shareImg, .reviewsImg{
+    margin-bottom: 10px !important;
+    height: 60px;
+    margin-top: 30px;
+    margin-left: 21px;
+}
+.shareImg{
+margin-left: 10px !important;
+}
+.direction_btn, .share_btn, .reviews_btn{
+    margin-top: 15px;
+}
+
+#map{
+    height:100%;
+}
+
+.modal-content{
+    height: 650px;
+    background-color: #e4e2e2;
+}
+#modal_2_content{
+    line-height: 1px;
+    padding: 30px 60px;
+}
+ #modal_2_content div> textarea{
+    font-size: 15px;
+    font-size: 17px;
+    line-height: 1.5;
+     height: 280px; 
+}
+.form-control{
+    font-size: 17px !important;
+}
+
+.status{
+    height: 50px;
+    background-color: gainsboro;
+    padding: 0px 200px;
+}
+span{
+    padding-left: 40px;
+    font-size: 22px;
+    color: #069633;
+}
+
+#car_img{
+    height: 45px;
+    margin-bottom: 10px;
+}
+
+h4{
+    color: #d66b0d;
+}
+
+.col2{
+    margin-top: 10px;
+}
+.col1{
+    padding-left: 25px;
+}
+#email_recievers{
+width: 300px;
+}
+
+#custom_email_div{
+margin-top: 18px;
+}
+
+.col-md-3{
+    margin-right:30px;
+}
+.col-md-3:nth-child(3){
+    margin-left: 11px;
+}
+#sent{
+    text-align: center;
+    color: #f99238;
+    margin-top: 20%;
+}
+
+#loading{
+    margin-left: 42%;
+    height: 100px;
+}
+.section-form {
+    padding: 80px;
+}
+#result_container .row,#modal_2_content .row  {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+     margin-top: 25px; 
+}
+
+div > a{
+    padding: 5px 15px !important;
+}
+
+#result_container{
+margin: 0px 20px;
+}
+
+.custom-select > option{
+font-size: 10px;
+}
+
+select{
+    height: 45px;
+    font-size: 17px;
+}
+
+
+label{
+    font-family: Lato;
+    margin-bottom: 15px;
+    color: #e67e23;
+    font-weight: 400;
+    display: block;
+}
+
+#search_box .form-row{
+    padding-bottom: 15px;
+}
+
+#search_box_label{
+    color: #f99238 !important;
+    margin-left: 400px !important;
+    margin-bottom: 70px !important;
+}
+
+#logo{
+    border-bottom: none;
+} 
+
+#logo_img:hover{
+    background-color: gray !important;
+}
+
+#to_row .col-md-6{
+    padding-left: 0px !important;
+}
+
+#email_send_btn{
+    margin-top: 30px;
+}
+
+.col-form-label{
+    margin-left: 40px;
+}
+#home_search-btn{
+    margin: 3% 69%;
+}
+
+#search-btn{
+    margin: 3% 73%;
+}
+
