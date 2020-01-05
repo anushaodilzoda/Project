@@ -2,6 +2,7 @@
     background-color: #555;
     padding-top: 5%;
     padding-left: 2%;
+    padding-right: 5%;
     padding-bottom: 2%;
     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.91)), url(images/restaurant.jpg);
     background-size: cover;
@@ -18,13 +19,14 @@
 }
 
 .container{
+    width: 1200px;
     margin-top: 30px;
     padding-bottom: 100px;
 }
 .container_div{
     margin: 10px;
     margin-top: 20px !important;
-    padding: 10px 20px;
+    padding: 20px 20px;
     color: #315375;
     line-height: 2;
     background: #e4e2e2bf;
@@ -185,11 +187,11 @@ label{
     margin-left: 40px;
 }
 #home_search-btn{
-    margin: 3% 69%;
+    margin: 3% 77%;
 }
 
 #search-btn{
-    margin: 3% 73%;
+    margin: 4% 82%;
 }
 
 #modal_4 .contact-form{
@@ -199,4 +201,32 @@ label{
 #modal_4 h2{
     font-weight: 500;
     font-size: 100%;
+}
+
+#search_box label{
+    width: 100px;
+}
+#result_container h4{
+    display: inline;
+}
+
+.rating, .rating_value {
+    color: #42ea66;
+    padding-left: 10px !important;
+  }
+  .rating_value{
+      padding-left: 40px !important;
+  }
+
+  #result_container .website{
+      color: #d66b0e;
+    padding-left: 0px !important;
+    margin-top: 10px;
+  }
+
+
+  @media (min-width: 1200px) {
+    .container{
+        max-width: 1200px;
+    }
 }
