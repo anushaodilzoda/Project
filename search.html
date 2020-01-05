@@ -103,26 +103,34 @@
                 </div>
 
                                           <!--  reviews modal-->
-        <div id="modal_0" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                  <div class="status"></div>
-                  <div  id="modal_0_content">
-                    WIP
-                  </div>
-            </div>
+
+  <div class="modal fade bd-example-modal-lg" id="modal_0" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="review_modal_title"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id="review_container" class="modal-body">
           </div>
         </div>
+      </div>
+    </div>
 
                             <!--  direction modal-->
         <div id="modal_1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
-              <div class="status">
+                <div class="modal-header status">
                 <img id="car_img" src="assets/images/car.png">
                 <span id="duration_status"></span>
                 <span id="distance_status"></span>
-              </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
               <div id="map"></div>
             </div>
           </div>
@@ -132,6 +140,11 @@
         <div id="modal_2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
+                <div class="status">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
               <div  id="modal_2_content">
                 <div class="row" id="to_row">
                 <div class="col-md-6">
@@ -210,7 +223,7 @@
         crossorigin="anonymous"></script>
         <script src="assets/search.js"></script>
         <script src="assets/functions.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmJyViZSJ3cStp8CIvoAIdZ_nTsJl5DBQ"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYcGgehhS1tJ1xhTwxY_2v8UOJNjKWzKM"></script>
   
 </body>
 </html>

@@ -40,7 +40,7 @@
     margin-left: 21px;
 }
 .shareImg{
-margin-left: 10px !important;
+margin-left: 5px !important;
 }
 .direction_btn, .share_btn, .reviews_btn{
     margin-top: 15px;
@@ -51,12 +51,12 @@ margin-left: 10px !important;
 }
 
 .modal-content{
-    height: 650px;
+    height: 680px;
     background-color: #e4e2e2;
 }
 #modal_2_content{
     line-height: 1px;
-    padding: 30px 60px;
+    padding: 0px 60px;
 }
  #modal_2_content div> textarea{
     font-size: 15px;
@@ -69,9 +69,11 @@ margin-left: 10px !important;
 }
 
 .status{
+    display: inline-block;
     height: 50px;
     background-color: gainsboro;
-    padding: 0px 200px;
+    padding-left: 200px !important;
+    padding-right: 20px;
 }
 span{
     padding-left: 40px;
@@ -128,7 +130,7 @@ margin-top: 18px;
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
-     margin-top: 25px; 
+     margin-top: 40px; 
 }
 
 div > a{
@@ -212,7 +214,7 @@ label{
 }
 
 .rating, .rating_value {
-    color: #42ea66;
+    color: #fdde04;
     padding-left: 10px !important;
   }
   .rating_value{
@@ -234,4 +236,42 @@ label{
 
 #modal_4 .modal-content{
     height: 740px;
+}
+
+button[data-dismiss="modal"]{
+    margin-left: 90%;
+}
+
+ .modal-header{
+    padding: 5px 20px;
+}
+#modal_0 .modal-header{
+    background-color: #808080a6;
+}
+
+/* Review Modal*/
+#modal_0{
+    color: #315375;
+    font-size: 15px;
+}
+.each_review{
+    margin-bottom: 35px;
+}
+
+.published_date span{
+    color: #315375;
+        font-size: 15px;
+}
+
+.published_date{
+    font-size: 15px;
+}
+.review_title{
+    margin: 5px 0px;
+}
+
+
+/**/
+#to_row{
+    margin-top: 15px !important;
 }

@@ -179,7 +179,7 @@ function displayResult(htmlDivId,result){
                 .attr("data-target","#modal_1")
                 .text("Directions");
 
-            var img2=$("<img>").attr("src","assets/images/share1.png").attr("class","shareImg shadow mb-5 bg-white rounded");
+            var img2=$("<img>").attr("src","assets/images/share.png").attr("class","shareImg shadow mb-5 bg-white rounded");
             var btn2=$("<a>")
                 .attr("class","share_btn btn btn-full")
                 .attr("href","#")
@@ -249,21 +249,22 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
     });
     }
     
-    var nameToShare;
+    var nameToShare, websiteToShare;
     function autofillEmail(indexOfRestaurant){
         var selected=result[indexOfRestaurant],
-            address=selected.address.formatted,
-            cuisine=selected.cuisines.toString(),
-            phone=selected.restaurant_phone;
-            nameToShare=selected.restaurant_name
+            address=selected.address,
+            websiteToShare=selected.website,
+            phone=selected.phone;
+            nameToShare=selected.name
         $("#message").val("Hi,\nThe restaurant that I would like to share with you is:"+
-                            "\n\n"+nameToShare+"\n"+"(Cuisines: "+cuisine+")\n"+address+"\n"+phone+"\n\n"+
+                            "\n\n"+nameToShare+"\n"+address+"\n"+phone+"\n"+websiteToShare+"\n\n"+
                                 "* * * Optional: You may want to share more details about your experience as well as the dishes that you would like to recommend. * * *");
     }
 
 
     function sendEmail(recieverEmail, subject, message){
         message="<div style=\"font-size: 15px\">"+ message.replace(nameToShare,"<span style=\"font-weight: bold\;font-size: 16px;\">"+nameToShare+"</span>")+"</div>";
+        message=message.replace(websiteToShare, "<a style=\"color: blue\" href=\""+websiteToShare+"\">"+websiteToShare+"</a>");
         Email.send({
             SecureToken : "c9c33f53-4b8f-4442-b581-b569cffe90a3 ",
             To : recieverEmail,
@@ -281,36 +282,31 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
         var location_id, review_num, rating;
         /* retrieving the location id, number of reviews and rating*/
         var selected=result[indexOfRestaurant];
-        var selected_lon=selected.geo.lon;
-        var selected_lat=selected.geo.lat;
-        console.log("lon: "+selected_lon+" lat: "+selected_lat);
-        console.log("lon: "+selected_lon+" lat: "+selected_lat);
-
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://tripadvisor1.p.rapidapi.com/restaurants/list-by-latlng?limit=50&currency=USD&distance=2&lunit=km&lang=en_US&latitude="+selected_lat+"&longitude="+selected_lon,
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-                "x-rapidapi-key": "27228f3928mshecf3768460bfdd6p1a3d7fjsn04c99c07c026"
-            }
-        }
-        
-        $.ajax(settings).done(function (response) {
-            console.log(response);
-            location_id=response.data[0].location_id;
-            review_num=response.data[0].num_reviews;
-            rating=response.data[0].rating;
-            console.log("location id: "+response.data[0].location_id);
-            for(i in response.data){
-                console.log("name: "+response.data[i].name);
-            }
-            
-        });
+        location_id=selected.location_id;
+        review_num=selected.num_reviews;
+        console.log("location_id: "+location_id);
+        console.log("review num: "+review_num);
+       
      
         /* retrieving the reviews*/
+        var queryUrl="https://tripadvisor1.p.rapidapi.com/reviews/list?limit="+review_num+"&currency=USD&lang=en_US&location_id="+location_id;
+        $.ajax(getAjaxSetting(queryUrl)).done(function (response) {
+            console.log(response);
+            response=response.data;
+            $("#review_modal_title").html(selected.name+" "+createStarRating(selected.rating));
 
+            for(var i=0; i<response.length; i++){
+                var date=(response[i].published_date);
+                date=date.substring(0,date.indexOf("T"));
+                date=$("<div>").attr("class","published_date").html(date+createStarRating(response[i].rating));
+                var title=$("<div>").attr("class", "review_title").text(response[i].title);
+                var text=$("<div>").attr("class","review_text").text(response[i].text);
+                $("#review_container").append($("<div>").attr("class","each_review").append(date,title,text));
+            }
+            
+
+        });
+        
 
     }
 
