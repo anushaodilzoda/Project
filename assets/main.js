@@ -53,16 +53,36 @@ $("#searcharea").on("change",function(){
 });
 
 // Tsolmon
+var favFood=[];
+$(document).ready(function(){
+    $('.check').click(function(){
+        if($(this).prop("checked") == true){
+           favFood.push(($(this).val()));
+        }
+    });
+});
+
+$("#checkAll").click(function(){
+    $('input:checkbox').not(this).prop('checked', this.checked);
+   
+    $(".check").each(function(){
+        console.log($(this).val());
+        favFood.push($(this).val());
+    })
+});
 
 $("#subscribeSubmitBtn").on("click", function(){
-    var name="Elisa";
+   
     var obj={
-        name: this.name,
-        email: "hakuban@yahoo.com",
-        fav_food: ["one", "two", "three"]
+        name: $("#signup_name").val(),
+        email: $("#signup_email").val(),
+        password: $("#signup_password").val(),
+        address: $("#signup_city").val()+", "+$("#signup_state").val(),
+        fav_food: favFood,
     };
 
-    localStorage.setItem("member_"+name,JSON.stringify(obj));
+    localStorage.setItem("member_"+obj.email,JSON.stringify(obj));
+
 
   })
 

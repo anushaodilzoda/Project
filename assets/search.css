@@ -203,6 +203,7 @@ label{
     font-size: 100%;
 }
 
+
 #search_box label{
     width: 100px;
 }
@@ -229,4 +230,8 @@ label{
     .container{
         max-width: 1200px;
     }
+}
+
+#modal_4 .modal-content{
+    height: 740px;
 }
