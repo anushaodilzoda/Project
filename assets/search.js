@@ -1,10 +1,11 @@
 initStoredSearch();
 /* * * * * * * elements * * * * * * */
 $("#zipcode_section").hide();
+$("#name_section").hide();
 $("#custom_email").hide();
 
 /* * * * * * * Variables * * * * * * */
-var type,name,distance,searchArea,zipCode;
+var type,name,distance,searchArea,zipCode,rating;
 
 
 
@@ -16,7 +17,8 @@ function initSearchVars(){
     zipCode=$("#zipcode").val();
     type=$("#type").val();
     name=$("#place_name").val();
-
+    rating=$("#rating").val();
+    console.log("rating: "+rating);
 }
 
 function initStoredSearch(){
@@ -26,8 +28,9 @@ function initStoredSearch(){
     distance=obj.distance;
     searchArea=obj.searchArea;
     zipCode=obj.zipCode;
+    rating=obj.rating;
     setTimeout(function(){
-        performSearch("result_container",searchArea,zipCode,distance,type,name);
+        performSearch("result_container",searchArea,zipCode,distance,type,name,rating);
     }, 300);
 }
 
@@ -39,19 +42,31 @@ $("#search-btn").on("click",function(){
     event.preventDefault();
     setTimeout(function(){
         initSearchVars();
-        performSearch("result_container",searchArea,zipCode,distance,type,name);
+        performSearch("result_container",searchArea,zipCode,distance,type,name,rating);
     }, 300);
 
 });
 
 $("#searcharea").on("change",function(){
-    if($("#searcharea").val()=="Zip Code"){
-    $("#zipcode_section").show();
+    var selected=$("#searcharea").val();
+    if(selected=="Zip Code"){
+        $("#zipcode_section").show();
+        $("#name_section").hide();
+    }else if(selected=="Name"){
+        $("#name_section").show();
+        $("#zipcode_section").hide();
     }else{
+        $("#name_section").hide();
         $("#zipcode_section").hide();
     }
 });
 
+$("#result_container").on("click",".reviews_btn",function(){
+    event.preventDefault();
+    var indexOfRestaurant=$(this).parent().parent().parent().attr("id");
+    console.log("clicked: "+indexOfRestaurant);
+    displayReview(indexOfRestaurant);
+});
 
 $("#result_container").on("click",".direction_btn",function(){
     event.preventDefault();
