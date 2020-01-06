@@ -41,12 +41,14 @@ $("#home_search-btn").on("click", function(){
 $("#searcharea").on("change",function(){
     var selected=$("#searcharea").val();
     if(selected=="Zip Code"){
-        $("#zipcode_section").show();
+        $("#place_name").val("All");
         $("#name_section").hide();
+        $("#zipcode_section").show();
     }else if(selected=="Name"){
         $("#name_section").show();
         $("#zipcode_section").hide();
     }else{
+        $("#place_name").val("All");
         $("#name_section").hide();
         $("#zipcode_section").hide();
     }

@@ -52,11 +52,13 @@ $("#searcharea").on("change",function(){
     if(selected=="Zip Code"){
         $("#zipcode_section").show();
         $("#name_section").hide();
+        $("#place_name").val("All");
     }else if(selected=="Name"){
         $("#name_section").show();
         $("#zipcode_section").hide();
     }else{
         $("#name_section").hide();
+        $("#place_name").val("All");
         $("#zipcode_section").hide();
     }
 });

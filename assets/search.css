@@ -4,7 +4,7 @@
     padding-left: 2%;
     padding-right: 5%;
     padding-bottom: 2%;
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.91)), url(images/restaurant.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.91)), url(images/restaurant.jpg);
     background-size: cover;
     color: white;
     background-attachment: fixed;
@@ -12,7 +12,7 @@
 
 #home_search_box{
     padding: 5% 10%;
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.91)), url(images/restaurant.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.91)), url(images/restaurant.jpg);
     background-size: cover;
     color: white;
     background-attachment: fixed;
@@ -42,6 +42,10 @@
 .shareImg{
 margin-left: 5px !important;
 }
+.reviewsImg{
+    margin-left: 12px !important;
+}
+
 .direction_btn, .share_btn, .reviews_btn{
     margin-top: 15px;
 }
@@ -51,7 +55,7 @@ margin-left: 5px !important;
 }
 
 .modal-content{
-    height: 680px;
+    height: 650px;
     background-color: #e4e2e2;
 }
 #modal_2_content{
@@ -101,7 +105,7 @@ width: 300px;
 }
 
 #custom_email_div{
-margin-top: 18px;
+margin-top: 12px;
 }
 
 .col-md-3{
@@ -151,12 +155,15 @@ select{
 }
 
 
-label{
+#search_box label{
     font-family: Lato;
     margin-bottom: 15px;
-    color: #e67e23;
+    color: white;
     font-weight: 400;
     display: block;
+}
+#modal_2 label{
+    color: #e66f07;
 }
 
 #search_box .form-row{
@@ -164,8 +171,7 @@ label{
 }
 
 #search_box_label{
-    color: #f99238 !important;
-    margin-left: 400px !important;
+    color: white !important;
     margin-bottom: 70px !important;
 }
 
@@ -214,7 +220,7 @@ label{
 }
 
 .rating, .rating_value {
-    color: #fdde04;
+    color: #e3f132;
     padding-left: 10px !important;
   }
   .rating_value{
@@ -222,7 +228,7 @@ label{
   }
 
   #result_container .website{
-      color: #d66b0e;
+      color: #1954c3;
     padding-left: 0px !important;
     margin-top: 10px;
   }
