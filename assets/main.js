@@ -94,7 +94,7 @@ $("#signin_submit").on("click", function(){
         var expectedEmail=key.slice(key.indexOf("_")+1);
         var expectedPassword=JSON.parse(localStorage.getItem("member_"+enteredEmail)).password;
         if(expectedEmail==enteredEmail && expectedPassword==enteredPassword){
-        localStorage.setItem("Signed in user: "+enteredEmail);
+        //localStorage.setItem("Signed in user: "+enteredEmail);
           $("#modal_5").hide();
           $("#displayName").text("Hi, "+enteredEmail.slice(0,enteredEmail.indexOf("@")));
           console.log(enteredEmail.slice(0,indexOf("@")));
