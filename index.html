@@ -19,7 +19,9 @@
                 <div class="row">
                     <img src="resources/img/logo-white.png" alt="omnifood logo" class="logo">
                     <ul class="main-nav">
-                       <li><a href="#" id="subscribe-btn" data-toggle="modal" data-target="#modal_4">Sign in</a></li>
+                        <li><a href="#" id="subscribe-btn" data-toggle="modal" data-target="#modal_4">Sign up</a></li>
+                       <li><a href="#" id="subscribe-btn" data-toggle="modal" data-target="#modal_5">Sign in</a></li>
+                       <h1 id="displayName"></h1>
 
                     </ul>
                     
@@ -88,6 +90,9 @@
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <section class="section-form">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
                     <div class="row">
                         <h2>Get an update on your community favorites!</h2>
                     </div>
@@ -233,6 +238,57 @@
               </div>
             </div>
           </div>
+
+
+ <!-- subscribe modal-->
+ <div id="modal_5" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+                
+                <div class="row">
+                      
+                        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                          <div class="card card-signin my-5">
+                            <div class="card-body">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                              <h5 class="card-title text-center">Sign In</h5>
+                              <form class="form-signin">
+                                <div class="form-label-group">
+                                        <label for="inputEmail">Email address</label>
+                                  <input type="email" id="signin_email" class="form-control" placeholder="Email address" required autofocus>
+                                </div>
+                  
+                                <div class="form-label-group">
+                                        <label for="inputPassword">Password</label>
+                                  <input type="password" id="signin_password" class="form-control" placeholder="Password" required>
+                                 
+                                </div>
+                  
+                                <div class="custom-control custom-checkbox mb-3">
+                                        <label class="custom-control-label" for="customCheck1">Remember password</label>
+                                  <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                  
+                                </div>
+                                <div id="errMsg"></div>
+                                <input type="submit" id="signin_submit"  href="#"></input>
+                                <hr class="my-4">
+                                <!-- <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
+                                <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button> -->
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
 
    
         <section class="section-meals">

@@ -12,7 +12,6 @@ function initSearchVars(){
     zipCode=$("#zipcode").val();
     type=$("#type").val();
     name=$("#place_name").val();
-
 }
 
 function saveSearchVars(){
@@ -64,7 +63,6 @@ $("#checkAll").click(function(){
 });
 
 $("#subscribeSubmitBtn").on("click", function(){
-   
     var obj={
         name: $("#signup_name").val(),
         email: $("#signup_email").val(),
@@ -72,10 +70,30 @@ $("#subscribeSubmitBtn").on("click", function(){
         address: $("#signup_city").val()+", "+$("#signup_state").val(),
         fav_food: favFood,
     };
-
     localStorage.setItem("member_"+obj.email,JSON.stringify(obj));
-
-
   })
 
 
+$("#signin_submit").on("click", function(){
+    event.preventDefault();
+    var enteredEmail=$("#signin_email").val();
+    var enteredPassword=$("#signin_password").val();
+   
+
+    for(var i=0; i<localStorage.length; i++){
+        var key=localStorage.key(i);
+        var expectedEmail=key.slice(key.indexOf("_")+1);
+        var expectedPassword=JSON.parse(localStorage.getItem("member_"+enteredEmail)).password;
+        if(expectedEmail==enteredEmail && expectedPassword==enteredPassword){
+        localStorage.setItem("Signed in user: "+enteredEmail);
+          $("#modal_5").hide();
+          $("#displayName").text("Hi, "+enteredEmail.slice(0,enteredEmail.indexOf("@")));
+          console.log(enteredEmail.slice(0,indexOf("@")));
+        }else{
+            $("div#errMsg").css("color", "red");
+            $("div#errMsg").html("Your email or password is incorrect! Please try again!");
+        }
+        
+    }
+
+})
