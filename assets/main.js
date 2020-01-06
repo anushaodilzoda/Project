@@ -97,8 +97,9 @@ $("#signin_submit").on("click", function(){
         var expectedPassword=JSON.parse(localStorage.getItem("member_"+enteredEmail)).password;
         if(expectedEmail==enteredEmail && expectedPassword==enteredPassword){
         //localStorage.setItem("Signed in user: "+enteredEmail);
-          $("#modal_5").hide();
-          $("#displayName").text("Hi, "+enteredEmail.slice(0,enteredEmail.indexOf("@")));
+          $("#modal_5 .close").click();
+
+          $("#displayName").text("Hi, "+JSON.parse(localStorage.getItem("member_"+enteredEmail)).name);
           console.log(enteredEmail.slice(0,indexOf("@")));
         }else{
             $("div#errMsg").css("color", "red");
