@@ -94,12 +94,13 @@ $("#signin_submit").on("click", function(){
     for(var i=0; i<localStorage.length; i++){
         var key=localStorage.key(i);
         var expectedEmail=key.slice(key.indexOf("_")+1);
-        var expectedPassword=JSON.parse(localStorage.getItem("member_"+enteredEmail)).password;
+        var expectedPassword=getObjByEmail(enteredEmail).password;
         if(expectedEmail==enteredEmail && expectedPassword==enteredPassword){
-        //localStorage.setItem("Signed in user: "+enteredEmail);
+        
+        localStorage.setItem("Signed in user: ", enteredEmail);
           $("#modal_5 .close").click();
 
-          $("#displayName").text("Hi, "+JSON.parse(localStorage.getItem("member_"+enteredEmail)).name);
+          $("#displayName").text("Hi, "+getObjByEmail(enteredEmail).name);
           console.log(enteredEmail.slice(0,indexOf("@")));
         }else{
             $("div#errMsg").css("color", "red");
@@ -109,3 +110,8 @@ $("#signin_submit").on("click", function(){
     }
 
 })
+
+function getObjByEmail(email){
+   var matchingObj= JSON.parse(localStorage.getItem("member_"+email));;
+   return matchingObj;
+}

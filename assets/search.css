@@ -281,3 +281,20 @@ button[data-dismiss="modal"]{
 #to_row{
     margin-top: 15px !important;
 }
+
+h4#displayName{
+    display: inline;
+    border-bottom: 1px solid #65D2A5;
+    color: #34C72A;
+    margin-left: 40px;
+}
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: -60px;
+    margin-right: 100px;
+}
+
+input#signin_submit{
+    margin-top:20px;
+}
