@@ -11,7 +11,7 @@ function performSearch(htmlDivId,searchArea,zipCode,distance,type,name,rating){
     var queryUrl;
     
     /*Searching around the user location*/
-    if(searchArea=="Current Location"){
+    if(searchArea=="Current Location" || searchArea=="Name"){
         if(lon=="undefined" && lat=="undefined"){
         getUserLocation();
         }
