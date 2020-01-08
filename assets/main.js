@@ -3,6 +3,7 @@ $("#zipcode_section").hide();
 $("#name_section").hide();
 displaySignedinUser();
 displaySavedComments();
+addDefaultUSers();
 
 /* * * * * * * Variables * * * * * * */
 var type,name,distance,searchArea,zipCode,rating;
@@ -146,5 +147,6 @@ $("#signout_button").on("click", function(){
     localStorage.removeItem("Signed in user: ");
     location.reload();
 })
+
 
 }

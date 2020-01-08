@@ -345,7 +345,22 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
     }
     
 
-
+    function addDefaultUSers(){
+        console.log("Hello");
+        var users=["Hatem","Khaliunaa","Anusha","Tsoomoo"];
+        var emails=["Hatem@yahoo.com","Khaliunaa@yahoo.com","Anusha@yahoo.com","Tsoomoo@yahoo.com"];
+        for(var i=0; i<users.length; i++){
+        var obj={
+            name: users[i],
+            email: emails[i],
+            password: 12345678,
+            address: "Alexandria , VA",
+            fav_food: ["American","Chinese"]
+        };
+        localStorage.setItem("member_"+obj.email,JSON.stringify(obj));
+    }
+    
+    }
 
 
         
