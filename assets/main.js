@@ -55,6 +55,9 @@ $("#searcharea").on("change",function(){
 });
 
 // Tsolmon
+
+var signedInUser = localStorage.getItem("Signed in user: ");
+$("#displayName").text("Hi, "+getObjByEmail(signedInUser).name);
 var favFood=[];
 $(document).ready(function(){
     $('.check').click(function(){
@@ -115,3 +118,4 @@ function getObjByEmail(email){
    var matchingObj= JSON.parse(localStorage.getItem("member_"+email));;
    return matchingObj;
 }
+
