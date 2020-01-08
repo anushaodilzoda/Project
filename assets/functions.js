@@ -337,10 +337,12 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
     function displaySavedComments(){
         for(var i=0; i<localStorage.length; i++){
             var key=localStorage.key(i);
+            if(key!=null){
             if(key.startsWith("comment")){
                 var newkey=key.substring(key.indexOf("_")+1);
                 submitNewComment(newkey,localStorage.getItem(key));
             }
+        }
         }
     }
     
