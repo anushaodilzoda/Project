@@ -338,7 +338,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
         for(var i=0; i<localStorage.length; i++){
             var key=localStorage.key(i);
             if(key.startsWith("comment")){
-                submitNewComment(key,localStorage.getItem(key));
+                var newkey=key.substring(key.indexOf("_")+1);
+                submitNewComment(newkey,localStorage.getItem(key));
             }
         }
     }
