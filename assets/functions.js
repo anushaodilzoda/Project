@@ -322,6 +322,27 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
         }
         return html;
     }
+
+    function submitNewComment(name, comment){
+        var parentEl=$("#row-testimonials");
+        var child=$("<div>").attr("class","col span-1-of-3");
+        var quote=$("<blockquote>").text(comment);
+        var cite=$("<cite>").text(name);
+        child.append(quote,cite);
+        parentEl.prepend(child);
+       $("#row-testimonials div:eq(3)").remove();
+
+    }
+
+    function displaySavedComments(){
+        for(var i=0; i<localStorage.length; i++){
+            var key=localStorage.key(i);
+            if(key.startsWith("comment")){
+                var newkey=key.substring(key.indexOf("_")+1);
+                submitNewComment(newkey,localStorage.getItem(key));
+            }
+        }
+    }
     
 
 

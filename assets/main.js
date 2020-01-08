@@ -2,6 +2,8 @@
 $("#zipcode_section").hide();
 $("#name_section").hide();
 displaySignedinUser();
+displaySavedComments();
+
 /* * * * * * * Variables * * * * * * */
 var type,name,distance,searchArea,zipCode,rating;
 
@@ -124,10 +126,21 @@ if(getObjByEmail(enteredEmail)!=null){
 
 })
 
+
+$("#save_comment_btn").on("click", function(){
+    event.preventDefault();
+    var name=$("#comment_name").val();
+    var comment=$("#comment_message").val();
+    localStorage.setItem("comment_"+name, comment);
+    submitNewComment(name,comment);
+
+})
+
 function getObjByEmail(email){
    var matchingObj= JSON.parse(localStorage.getItem("member_"+email));;
    return matchingObj;
 }
+
 
 $("#signout_button").on("click", function(){
     localStorage.removeItem("Signed in user: ");
