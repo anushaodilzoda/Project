@@ -1,4 +1,5 @@
 initStoredSearch();
+displaySignedinUser();
 /* * * * * * * elements * * * * * * */
 $("#zipcode_section").hide();
 $("#name_section").hide();

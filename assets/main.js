@@ -1,6 +1,9 @@
+
 $("#zipcode_section").hide();
 $("#name_section").hide();
+displaySignedinUser();
 displaySavedComments();
+
 /* * * * * * * Variables * * * * * * */
 var type,name,distance,searchArea,zipCode,rating;
 
@@ -56,9 +59,12 @@ $("#searcharea").on("change",function(){
 });
 
 // Tsolmon
-
+function displaySignedinUser(){
 var signedInUser = localStorage.getItem("Signed in user: ");
+if(signedInUser!=null){
 $("#displayName").text("Hi, "+getObjByEmail(signedInUser).name);
+}
+
 var favFood=[];
 $(document).ready(function(){
     $('.check').click(function(){
@@ -94,7 +100,7 @@ $("#signin_submit").on("click", function(){
     var enteredEmail=$("#signin_email").val();
     var enteredPassword=$("#signin_password").val();
    
-
+if(getObjByEmail(enteredEmail)!=null){
     for(var i=0; i<localStorage.length; i++){
         var key=localStorage.key(i);
         var expectedEmail=key.slice(key.indexOf("_")+1);
@@ -112,6 +118,11 @@ $("#signin_submit").on("click", function(){
         }
         
     }
+}else{
+    $("div#errMsg").css("color", "red");
+    $("div#errMsg").html("No such user, Please sign up!");
+
+}
 
 })
 
@@ -131,3 +142,9 @@ function getObjByEmail(email){
 }
 
 
+$("#signout_button").on("click", function(){
+    localStorage.removeItem("Signed in user: ");
+    location.reload();
+})
+
+}
