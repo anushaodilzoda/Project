@@ -256,7 +256,7 @@ button[data-dismiss="modal"]{
 }
 
 /* Review Modal*/
-#modal_0{
+#modal_0, #comment_modal{
     color: #315375;
     font-size: 15px;
 }
@@ -280,4 +280,37 @@ button[data-dismiss="modal"]{
 /**/
 #to_row{
     margin-top: 15px !important;
+}
+
+#add_comment_btn{
+    margin-left: 80%;
+}
+
+/* Comment modal */
+
+#comment_modal .modal-content{
+    height: 400px;
+}
+
+#comment_modal .modal-body{
+    margin: 0px 30px;
+    line-height: 10px;
+}
+#comment_modal label{
+    color: #e66f07;
+    font-size: 18px;
+}
+
+#comment_modal .modal-footer{
+    padding-top: 0px;
+    margin-bottom: 10px;
+    margin-right: 19px;
+}
+
+#comment_modal #name_row{
+    margin-bottom: 30px;
+}
+
+blockquote{
+    height: 60%;
 }

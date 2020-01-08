@@ -1,5 +1,6 @@
 $("#zipcode_section").hide();
 $("#name_section").hide();
+displaySavedComments();
 /* * * * * * * Variables * * * * * * */
 var type,name,distance,searchArea,zipCode,rating;
 
@@ -107,5 +108,14 @@ $("#signin_submit").on("click", function(){
         }
         
     }
+
+})
+
+$("#save_comment_btn").on("click", function(){
+    event.preventDefault();
+    var name=$("#comment_name").val();
+    var comment=$("#comment_message").val();
+    localStorage.setItem("comment_"+name, comment);
+    submitNewComment(name,comment);
 
 })
