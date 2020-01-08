@@ -282,6 +282,7 @@ button[data-dismiss="modal"]{
     margin-top: 15px !important;
 }
 
+
 #add_comment_btn{
     margin-left: 80%;
 }
@@ -313,4 +314,22 @@ button[data-dismiss="modal"]{
 
 blockquote{
     height: 60%;
+}
+
+h4#displayName{
+    display: inline;
+    border-bottom: 1px solid #65D2A5;
+    color: #34C72A;
+    margin-left: 40px;
+}
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: -60px;
+    margin-right: 100px;
+}
+
+input#signin_submit{
+    margin-top:20px;
+
 }
