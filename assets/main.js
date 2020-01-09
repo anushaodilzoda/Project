@@ -142,7 +142,6 @@ function getObjByEmail(email){
    return matchingObj;
 }
 
-
 $("#signout_button").on("click", function(){
     localStorage.removeItem("Signed in user: ");
     location.reload();
@@ -150,3 +149,20 @@ $("#signout_button").on("click", function(){
 
 
 }
+
+$("#contact_send_btn").on("click", function(){
+event.preventDefault();
+   var name= $("#contact_name");
+   var email=$("#contact_email");
+   var reason=$("#contact_reason");
+   var message=$("#contact_message");
+   sendEmail("hakuban@yahoo.com","Customer contact-"+reason.val(),"From: </br>"+name.val()+"</br>"+email.val()+"</br></br>"+message.val());
+   name.val("");
+   email.val("");
+   reason.val("");
+   message.val("");
+   setTimeout(function(){
+    $("#contact_sent_msg").text("");
+   },4000);
+   $("#contact_sent_msg").text("Sent");
+});

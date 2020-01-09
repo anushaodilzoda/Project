@@ -433,70 +433,51 @@
                     <div class="row">
                     <div class="col span-1-of-3">
                         <label for="name">Name</label>
-
                     </div>
                     <div class="col span-2-of-3">
-                    <input type="text" name="name" id="name" placeholder="Your name" required>
+                    <input type="text" name="name" id="contact_name" placeholder="Your name" required>
                     </div>
                     </div>
                     <div class="row">
                             <div class="col span-1-of-3">
                                 <label for="email">Email</label>
-                            
-        
                             </div>
                             <div class="col span-2-of-3">
-                            <input type="email" name="email" id="email" placeholder="Your email" required>
+                            <input type="email" name="email" id="contact_email" placeholder="Your email" required>
                         </div>
                     </div> 
                     <div class="row">
                             <div class="col span-1-of-3">
-                                <label for="find-us">How did you find us?</label>
-                            
-        
+                                <label for="find-us">Reason to contact</label>
                             </div>
                             <div class="col span-2-of-3">
-                            <select name="find us" id="find us">
-                                <option value="friends">Friends</option>
-                                <option value="search">Search engine</option>
-                                <option value="ad">Advertisement</option>
+                            <select name="find us" id="contact_reason">
+                                <option selected value="choose one">Choose one</option>
+                                <option value="signup">Signup</option>
+                                <option value="restaurants">Restaurants</option>
+                                <option value="suggestion">Suggestion</option>
+                                <option value="business">Business</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
-                    </div> 
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label>Newsletter</label>
-                        
-    
-                        </div>
-                        <div class="col span-2-of-3">
-                        <input type="checkbox" name="news" id="news" checked>Yes, please
-                    </div>
-                </div>  
+                    </div>  
                 <div class="row">
                     <div class="col span-1-of-3">
-                        <label>Drop us a line</label>
-                    
-
+                        <label>Message</label>
                     </div>
                     <div class="col span-2-of-3">
-                    <textarea name="message" placeholder="Your message"></textarea>
+                    <textarea id="contact_message" name="message" placeholder="Your message"></textarea>
                 </div>
             </div> 
             <div class="row">
                 <div class="col span-1-of-3">
                     <label>&nbsp;</label>
-                
-
                 </div>
                 <div class="col span-2-of-3">
-                <input type="submit" value="Send it!">
+                    <a class="btn btn-full" id="contact_send_btn" href="#">Send</a>
+                    <div id="contact_sent_msg"></div>
             </div>
         </div>      
-
-
-
                 </form>
             </div>
             
@@ -530,6 +511,7 @@
                 </p>
             </div>
         </footer>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

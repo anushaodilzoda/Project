@@ -262,9 +262,13 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
     }
 
 
-    function sendEmail(recieverEmail, subject, message){
+    function prepAndSendEmail(recieverEmail, subject, message){
         message="<div style=\"font-size: 15px\">"+ message.replace(nameToShare,"<span style=\"font-weight: bold\;font-size: 16px;\">"+nameToShare+"</span>")+"</div>";
         message=message.replace(websiteToShare, "<a style=\"color: blue\" href=\""+websiteToShare+"\">"+websiteToShare+"</a>");
+        sendEmail(recieverEmail,subject,message);
+    }
+
+    function sendEmail(recieverEmail, subject, message){
         Email.send({
             SecureToken : "c9c33f53-4b8f-4442-b581-b569cffe90a3 ",
             To : recieverEmail,

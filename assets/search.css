@@ -333,3 +333,17 @@ input#signin_submit{
     margin-top:20px;
 
 }
+
+.contact-form a{
+    margin-left: 77%;
+}
+
+#contact_message{
+    height: 200px;
+}
+#contact_sent_msg{
+    margin-left: 81%;
+    color: #2daf2d;
+    margin-top: 5px;
+    font-weight: 400;
+}

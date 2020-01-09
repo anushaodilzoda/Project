@@ -1,5 +1,5 @@
 initStoredSearch();
-displaySignedinUser();
+//displaySignedinUser();
 /* * * * * * * elements * * * * * * */
 $("#zipcode_section").hide();
 $("#name_section").hide();
@@ -108,8 +108,7 @@ $("#email_send_btn").on("click",function(){
     var subject=$("#subject").val(),
         message=$("#message").val();
         message= message.split("\n").join("</br>");
-
-    sendEmail(recieverEmail,subject,message);
+        prepAndSendEmail(recieverEmail,subject,message);
 
 
 })
