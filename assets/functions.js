@@ -67,8 +67,6 @@ function getUserLocation(){
 
  function filterResponse(response,type,name){
     console.log(response);
-    console.log("name: "+name);
-    console.log("type: "+type);
     var arr=response.data;
     var newArr=[];
     if(type=="All" && name=="All"){
@@ -352,7 +350,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
     
 
     function addDefaultUSers(){
-        console.log("Hello");
         var users=["Hatem","Khaliunaa","Anusha","Tsoomoo"];
         var emails=["Hatem@yahoo.com","Khaliunaa@yahoo.com","Anusha@yahoo.com","Tsoomoo@yahoo.com"];
         for(var i=0; i<users.length; i++){

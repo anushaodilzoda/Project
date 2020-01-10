@@ -152,17 +152,24 @@ $("#signout_button").on("click", function(){
 
 $("#contact_send_btn").on("click", function(){
 event.preventDefault();
-   var name= $("#contact_name");
-   var email=$("#contact_email");
-   var reason=$("#contact_reason");
-   var message=$("#contact_message");
-   sendEmail("hakuban@yahoo.com","Customer contact-"+reason.val(),"From: </br>"+name.val()+"</br>"+email.val()+"</br></br>"+message.val());
+   let name= $("#contact_name");
+   let email=$("#contact_email");
+   let reason=$("#contact_reason");
+   let message=$("#contact_message");
+   if(email.val()=="" && message.val()==""){
+    setTimeout(function(){
+        $("#contact_status_error").text("");
+       },4000);
+       $("#contact_status_error").text("Email and Message cannot be empty");
+   }else{
+      sendEmail("hakuban@yahoo.com","Customer contact-"+reason.val(),"From: </br>"+name.val()+"</br>"+email.val()+"</br></br>"+message.val());
    name.val("");
    email.val("");
    reason.val("");
    message.val("");
    setTimeout(function(){
-    $("#contact_sent_msg").text("");
+    $("#contact_status").text("");
    },4000);
-   $("#contact_sent_msg").text("Sent");
+   $("#contact_status").text("Sent");
+}
 });
