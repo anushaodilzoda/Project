@@ -1,10 +1,8 @@
 
-$("#zipcode_section").hide();
-$("#name_section").hide();
 displaySignedinUser();
 displaySavedComments();
 addDefaultUSers();
-
+$( "#zipcode" ).prop( "disabled", true ).css("background-color","#6b6868");
 /* * * * * * * Variables * * * * * * */
 var type,name,distance,searchArea,zipCode,rating;
 
@@ -46,16 +44,9 @@ $("#home_search-btn").on("click", function(){
 $("#searcharea").on("change",function(){
     var selected=$("#searcharea").val();
     if(selected=="Zip Code"){
-        $("#place_name").val("All");
-        $("#name_section").hide();
-        $("#zipcode_section").show();
-    }else if(selected=="Name"){
-        $("#name_section").show();
-        $("#zipcode_section").hide();
+       $( "#zipcode" ).prop( "disabled", false ).css("background-color","white");
     }else{
-        $("#place_name").val("All");
-        $("#name_section").hide();
-        $("#zipcode_section").hide();
+        $( "#zipcode" ).prop( "disabled", true ).css("background-color","#6b6868");
     }
 });
 

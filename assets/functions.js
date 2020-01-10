@@ -3,7 +3,7 @@
 var lon="undefined";
 var lat="undefined";
 var result="undefined";
-
+//localStorage.clear();
 
 /* * * * * * * Functions * * * * * * */
 
@@ -11,7 +11,7 @@ function performSearch(htmlDivId,searchArea,zipCode,distance,type,name,rating){
     var queryUrl;
     
     /*Searching around the user location*/
-    if(searchArea=="Current Location" || searchArea=="Name"){
+    if(searchArea=="Current Location"){
         if(lon=="undefined" && lat=="undefined"){
         getUserLocation();
         }
@@ -329,7 +329,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
         var parentEl=$("#row-testimonials");
         var child=$("<div>").attr("class","col span-1-of-3");
         var quote=$("<blockquote>").text(comment);
-        var cite=$("<cite>").text(name);
+        var image=$("<img>").attr("src","assets/images/avatar.jpeg");
+        var label=$("<label>").text(name);
+        var cite=$("<cite>").append(image,label);
         child.append(quote,cite);
         parentEl.prepend(child);
        $("#row-testimonials div:eq(3)").remove();

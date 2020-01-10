@@ -40,7 +40,8 @@
     margin-left: 21px;
 }
 .shareImg{
-margin-left: 5px !important;
+    height: 63px;
+    margin-left: 5px !important;
 }
 .reviewsImg{
     margin-left: 12px !important;
@@ -162,6 +163,7 @@ select{
     font-weight: 400;
     display: block;
 }
+
 #modal_2 label{
     color: #e66f07;
 }
@@ -244,7 +246,7 @@ select{
 }
 
 #modal_4 .modal-content{
-    height: 740px;
+    height: 770px;
 }
 
 button[data-dismiss="modal"]{
