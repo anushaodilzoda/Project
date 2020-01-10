@@ -3,7 +3,7 @@
 var lon="undefined";
 var lat="undefined";
 var result="undefined";
-
+//localStorage.clear();
 
 /* * * * * * * Functions * * * * * * */
 
@@ -11,7 +11,7 @@ function performSearch(htmlDivId,searchArea,zipCode,distance,type,name,rating){
     var queryUrl;
     
     /*Searching around the user location*/
-    if(searchArea=="Current Location" || searchArea=="Name"){
+    if(searchArea=="Current Location"){
         if(lon=="undefined" && lat=="undefined"){
         getUserLocation();
         }
@@ -67,8 +67,6 @@ function getUserLocation(){
 
  function filterResponse(response,type,name){
     console.log(response);
-    console.log("name: "+name);
-    console.log("type: "+type);
     var arr=response.data;
     var newArr=[];
     if(type=="All" && name=="All"){
@@ -262,9 +260,13 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
     }
 
 
-    function sendEmail(recieverEmail, subject, message){
+    function prepAndSendEmail(recieverEmail, subject, message){
         message="<div style=\"font-size: 15px\">"+ message.replace(nameToShare,"<span style=\"font-weight: bold\;font-size: 16px;\">"+nameToShare+"</span>")+"</div>";
         message=message.replace(websiteToShare, "<a style=\"color: blue\" href=\""+websiteToShare+"\">"+websiteToShare+"</a>");
+        sendEmail(recieverEmail,subject,message);
+    }
+
+    function sendEmail(recieverEmail, subject, message){
         Email.send({
             SecureToken : "c9c33f53-4b8f-4442-b581-b569cffe90a3 ",
             To : recieverEmail,
@@ -327,7 +329,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
         var parentEl=$("#row-testimonials");
         var child=$("<div>").attr("class","col span-1-of-3");
         var quote=$("<blockquote>").text(comment);
-        var cite=$("<cite>").text(name);
+        var image=$("<img>").attr("src","assets/images/avatar.jpeg");
+        var label=$("<label>").text(name);
+        var cite=$("<cite>").append(image,label);
         child.append(quote,cite);
         parentEl.prepend(child);
        $("#row-testimonials div:eq(3)").remove();
@@ -337,16 +341,17 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
     function displaySavedComments(){
         for(var i=0; i<localStorage.length; i++){
             var key=localStorage.key(i);
+            if(key!=null){
             if(key.startsWith("comment")){
                 var newkey=key.substring(key.indexOf("_")+1);
                 submitNewComment(newkey,localStorage.getItem(key));
             }
         }
+        }
     }
     
 
     function addDefaultUSers(){
-        console.log("Hello");
         var users=["Hatem","Khaliunaa","Anusha","Tsoomoo"];
         var emails=["Hatem@yahoo.com","Khaliunaa@yahoo.com","Anusha@yahoo.com","Tsoomoo@yahoo.com"];
         for(var i=0; i<users.length; i++){

@@ -1,10 +1,8 @@
 initStoredSearch();
-displaySignedinUser();
 /* * * * * * * elements * * * * * * */
-$("#zipcode_section").hide();
-$("#name_section").hide();
-$("#custom_email").hide();
 
+$("#custom_email").hide();
+$( "#zipcode" ).prop( "disabled", true ).css("background-color","#6b6868");
 /* * * * * * * Variables * * * * * * */
 var type,name,distance,searchArea,zipCode,rating;
 
@@ -51,16 +49,9 @@ $("#search-btn").on("click",function(){
 $("#searcharea").on("change",function(){
     var selected=$("#searcharea").val();
     if(selected=="Zip Code"){
-        $("#zipcode_section").show();
-        $("#name_section").hide();
-        $("#place_name").val("All");
-    }else if(selected=="Name"){
-        $("#name_section").show();
-        $("#zipcode_section").hide();
+       $( "#zipcode" ).prop( "disabled", false ).css("background-color","white");
     }else{
-        $("#name_section").hide();
-        $("#place_name").val("All");
-        $("#zipcode_section").hide();
+        $( "#zipcode" ).prop( "disabled", true ).css("background-color","#6b6868");
     }
 });
 
@@ -108,8 +99,7 @@ $("#email_send_btn").on("click",function(){
     var subject=$("#subject").val(),
         message=$("#message").val();
         message= message.split("\n").join("</br>");
-
-    sendEmail(recieverEmail,subject,message);
+        prepAndSendEmail(recieverEmail,subject,message);
 
 
 })

@@ -17,7 +17,7 @@
         <header>
             <nav>
                 <div class="row">
-                    <img src="resources/img/logo-white.png" alt="omnifood logo" class="logo">
+                    <img src="resources/img/ts logo.jpg" alt="toxic sushi logo" class="logo">
                     
                 </div>
             </nav>
@@ -40,75 +40,65 @@
     </header>
    
     <div id="home_search_box">
-        <h2 id="search_box_label">Search restaurants</h2>
-        <div class="form-group row">
-            <label for="colFormLabel" class="col-sm-2 col-form-label">Search By</label>
-            <div class="col-sm-3">
-                <select class="form-control" id="searcharea" required>
-                    <option selected value="Current Location">Current Location</option>
-                    <option id="zipcode_option">Zip Code</option>
-                    <option id="name_option">Name</option>
-                </select>
-            </div>
+            <h2 id="search_box_label">Search restaurants</h2>
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Search By</label>
+                <div class="col-sm-3">
+                    <select class="form-control" id="searcharea" required>
+                        <option selected value="Current Location">Current Location</option>
+                        <option id="zipcode_option">Zip Code</option>
+                        
+                    </select>
+                </div>
+                <label class="col-form-label col-sm-2">Zip Code</label>
+                <div class="col-sm-3">
+                    <input class="form-control" id="zipcode" placeholder="Enter the zip code" required>
+                </div>
+                </div>
+          <div class="form-group row" id="name_section">
             <label for="colFormLabel" class="col-sm-2 col-form-label">Distance (mile)</label>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" id="distance" value="3">
-            </div>
-              </div>
-
-        <div class="form-group row" id="zipcode_section">
-            <label for="colFormLabel" class="col-sm-2 col-form-label">Zip Code</label>
-            <div class="col-sm-3">
-                <input class="form-control" id="zipcode" placeholder="Enter the zip code" required>
-            </div>
-        </div>
-      <div class="form-group row" id="name_section">
-        <label for="colFormLabel" class="col-sm-2 col-form-label">Name</label>
-        <div class="col-sm-3">
-                <input type="text" class="form-control" id="place_name" value="All">
-        </div>
-      </div>
-
-         <div class="form-group row">
-
-          <label for="colFormLabel" class="col-sm-2 col-form-label">Type</label>
-          <div class="col-sm-3">
-            <select class="form-control" id="type" required>
-              <option selected value="All">All</option>
-              <option>American</option>
-              <option>Burgers</option>
-              <option>Chinese</option>
-              <option>Italian</option>
-              <option>Japanese</option>
-              <option>Mexican</option>
-              <option>Pasta</option>
-              <option>Pizza</option>
-              <option>Sandwiches</option>
-              <option>Seafood</option>
-              <option>Steak</option>
-              <option>Sushi</option>
-            </select>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="distance" value="3">
+                </div>
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Type</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="type" required>
+                    <option selected value="All">All</option>
+                    <option>American</option>
+                    <option>Burgers</option>
+                    <option>Chinese</option>
+                    <option>Italian</option>
+                    <option>Japanese</option>
+                    <option>Mexican</option>
+                    <option>Pasta</option>
+                    <option>Pizza</option>
+                    <option>Sandwiches</option>
+                    <option>Seafood</option>
+                    <option>Steak</option>
+                    <option>Sushi</option>
+                  </select>
+                </div>
           </div>
 
-
-          <label for="colFormLabel" class="col-sm-2 col-form-label">Min Rating</label>
-          <div class="col-sm-3">
-            <select class="form-control" id="rating" required>
-              <option selected value="3">3</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+             <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Min Rating</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="rating" required>
+                    <option selected value="3">3</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                  </div>
+          <label for="colFormLabel" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-3">
+                    <input type="text" class="form-control" id="place_name" value="All">
             </div>
-
-
-
-
-         </div>
-         <a class="btn btn-full" href="search.html" id="home_search-btn">Search</a>    
-    </div>
+             </div>
+             <a class="btn btn-full" href="search.html" id="home_search-btn">Search</a>    
+        </div>
 
         <!-- sign up-->
         <div id="modal_4" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -215,9 +205,7 @@
                         </div>
                      </div>
 
-                     <form action="/action_page.php">
-                        <input id="bannerImg"  type="file" name="pic" accept="image/*">
-                      </form>
+            
  
                             <div class="row">
                                     <div class="col span-1-of-3">
@@ -400,31 +388,32 @@
     </section>
         <section class="section-testimonials">
             <div class="row">
-                <h2>Our customers can't live without us</h2>
+                <h2 class="center">Our customers can't live without us</h2>
 
 
             </div>
             <div class="row" id="row-testimonials">
                 <div class="col span-1-of-3">
                     <blockquote>
-                            Omnifood is just awesome! I just launched a startup which leaves me with no time for cooking, so Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
+                            Toxic Sushi is just awesome! I just launched a startup which leaves me with no time for cooking, so Toxic Sushi is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
                             <cite><img src="resources/img/customer-1.jpg">Alberto Duncan</cite>
                     </blockquote>
                 </div>
                 <div class="col span-1-of-3">
                         <blockquote>
-                                Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Omifood. Me and my family are so in love!
+                                Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Toxic Sushi. Me and my family are so in love!
                                 <cite><img src="resources/img/customer-2.jpg">Joana Silva</cite>
                         </blockquote>
                     </div>
                     <div class="col span-1-of-3">
                             <blockquote>
-                                    I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Omnifood. Best food delivery service in the Bay Area. Keep up the great work!
+                                    I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Toxic Sushi. Best food delivery service in the Bay Area. Keep up the great work!
                                     <cite><img src="resources/img/customer-3.jpg">Milton Chapman</cite>
                             </blockquote>
                         </div>
             </div> 
-            <a class="btn btn-full" href="#" id="add_comment_btn" data-toggle="modal" data-target="#comment_modal">Add Comment</a>
+            <a class="btn btn-full" href="#" id="add_comment_btn" data-toggle="modal" data-target="#comment_modal">Leave Comment</a>
+            
             <!-- Add comment modal -->
 <div class="modal fade" id="comment_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -461,70 +450,52 @@
                     <div class="row">
                     <div class="col span-1-of-3">
                         <label for="name">Name</label>
-
                     </div>
                     <div class="col span-2-of-3">
-                    <input type="text" name="name" id="name" placeholder="Your name" required>
+                    <input type="text" name="name" id="contact_name" placeholder="Your name" required>
                     </div>
                     </div>
                     <div class="row">
                             <div class="col span-1-of-3">
                                 <label for="email">Email</label>
-                            
-        
                             </div>
                             <div class="col span-2-of-3">
-                            <input type="email" name="email" id="email" placeholder="Your email" required>
+                            <input type="email" name="email" id="contact_email" placeholder="Your email" required>
                         </div>
                     </div> 
                     <div class="row">
                             <div class="col span-1-of-3">
-                                <label for="find-us">How did you find us?</label>
-                            
-        
+                                <label for="find-us">Reason to contact</label>
                             </div>
                             <div class="col span-2-of-3">
-                            <select name="find us" id="find us">
-                                <option value="friends">Friends</option>
-                                <option value="search">Search engine</option>
-                                <option value="ad">Advertisement</option>
+                            <select name="find us" id="contact_reason">
+                                <option selected value="choose one">Choose one</option>
+                                <option value="signup">Signup</option>
+                                <option value="restaurants">Restaurants</option>
+                                <option value="suggestion">Suggestion</option>
+                                <option value="business">Business</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
-                    </div> 
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label>Newsletter</label>
-                        
-    
-                        </div>
-                        <div class="col span-2-of-3">
-                        <input type="checkbox" name="news" id="news" checked>Yes, please
-                    </div>
-                </div>  
+                    </div>  
                 <div class="row">
                     <div class="col span-1-of-3">
-                        <label>Drop us a line</label>
-                    
-
+                        <label>Message</label>
                     </div>
                     <div class="col span-2-of-3">
-                    <textarea name="message" placeholder="Your message"></textarea>
+                    <textarea id="contact_message" name="message" placeholder="Your message"></textarea>
                 </div>
             </div> 
             <div class="row">
                 <div class="col span-1-of-3">
                     <label>&nbsp;</label>
-                
-
                 </div>
                 <div class="col span-2-of-3">
-                <input type="submit" value="Send it!">
+                    <a class="btn btn-full" id="contact_send_btn" href="#">Send</a>
+                    <div id="contact_status"></div>
+                    <div id="contact_status_error"></div>
             </div>
         </div>      
-
-
-
                 </form>
             </div>
             
@@ -554,10 +525,11 @@
             </div>
             <div class="row">
                 <p>
-                    Copyright &copy; 2019 by Omnifood. All rights reserved.
+                    Copyright &copy; 2019 by Toxic Sushi. All rights reserved.
                 </p>
             </div>
         </footer>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
