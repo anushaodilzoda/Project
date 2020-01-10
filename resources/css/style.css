@@ -195,9 +195,10 @@ header {
     .logo {
         height: 100px;
         width: auto;
-        float: left;
-        margin-top: 20px;
-        
+        float: right;
+        margin-top: 2px;
+        margin-left: 20px;
+      
     }
     .main-nav {
         float:right;
@@ -242,10 +243,12 @@ border-bottom: 2px solid #e67e22;
 /* ........................................... */
 .section-meals {
     padding: 0;
+    
 }
 .meals-showcase {
     list-style: none;
     width: 100%;
+   
 
 }
 .meals-showcase li {
@@ -346,7 +349,9 @@ border-bottom: 2px solid #e67e22;
     background-size: cover;
     color: white;
     background-attachment: fixed;
+    padding-left: 80px;
 }
+
 blockquote {
     padding: 2%;
     font-style: italic;
