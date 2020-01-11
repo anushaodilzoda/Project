@@ -141,6 +141,7 @@ $("#signout_button").on("click", function(){
 
 }
 
+
 $("#contact_send_btn").on("click", function(){
 event.preventDefault();
    let name= $("#contact_name");
@@ -164,3 +165,4 @@ event.preventDefault();
    $("#contact_status").text("Sent");
 }
 });
+
