@@ -2,6 +2,8 @@
 /* * * * * * * Variables * * * * * * */
 var lon="undefined";
 var lat="undefined";
+var userLon="undefined";
+var userLat="undefined";
 var result="undefined";
 //localStorage.clear();
 
@@ -9,11 +11,32 @@ var result="undefined";
 
 function performSearch(htmlDivId,searchArea,zipCode,distance,type,name,rating){
     var queryUrl;
-    
+
     /*Searching around the user location*/
     if(searchArea=="Current Location"){
         if(lon=="undefined" && lat=="undefined"){
-        getUserLocation();
+            getUserLocation();
+        }
+        var interval3=setInterval(() => {
+            if(userLon!="undefined" && userLat!="undefined"){
+            lon=userLon; 
+            lat=userLat; 
+            clearInterval(interval3);
+            }
+        }, 200);
+
+    }else{
+            var geocoder = new google.maps.Geocoder();
+            var address = zipCode;
+            geocoder.geocode({ 'address': 'zipcode '+address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                  lat = results[0].geometry.location.lat();
+                  lon = results[0].geometry.location.lng();
+                } else {
+                    alert("Request failed.")
+                }
+            });
+        
         }
         var interval1=setInterval(function(){
         if(lon!="undefined" && lat!="undefined"){
@@ -25,17 +48,7 @@ function performSearch(htmlDivId,searchArea,zipCode,distance,type,name,rating){
             });
         }
         },500);
-
-    /*Searching by the zipcode*/
-    }else{
-        // queryUrl="https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/"+zipCode;
-        // $.ajax(getAjaxSetting(queryUrl)).done(function (response) {
-        //     result=filterResponse(response,type,name);
-        //     displayResult(htmlDivId,result);
-        // });
-    }
 }
-//"https://tripadvisor1.p.rapidapi.com/restaurants/list-by-latlng?limit=50&currency=USD&distance=2&lunit=km&lang=en_US&latitude="+selected_lat+"&longitude="+selected_lon
 
 
 function getAjaxSetting(queryUrl){
@@ -56,8 +69,8 @@ function getAjaxSetting(queryUrl){
 function getUserLocation(){
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(function(location){
-            lon=location.coords.longitude;
-            lat=location.coords.latitude;
+            userLon=location.coords.longitude;
+            userLat=location.coords.latitude;
         });
     }else{
         alert("Geolocation is not supported by this browser.");
@@ -204,14 +217,14 @@ var map;
 function displayDistance(indexOfRestaurant){
     var selected=result[indexOfRestaurant];
 
-    if(lon=="undefined" && lat=="undefined"){
+    if(userLon=="undefined" && userLat=="undefined"){
         console.log("getting user location");
         getUserLocation();
         }
         var interval1=setInterval(function(){
-            if(lon!="undefined" && lat!="undefined"){
+            if(userLon!="undefined" && userLat!="undefined"){
                 clearInterval(interval1);
-        var pointA = new google.maps.LatLng(lat, lon),
+        var pointA = new google.maps.LatLng(userLat, userLon),
             pointB = new google.maps.LatLng(selected.latitude, selected.longitude),
             myOptions = {
             zoom: 10,
