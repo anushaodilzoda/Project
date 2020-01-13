@@ -110,10 +110,6 @@ $("#email_send_btn").on("click",function(){
         }
         
     }
-
-        
-
-
 })
 
 
