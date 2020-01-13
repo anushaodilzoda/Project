@@ -365,3 +365,17 @@ input#signin_submit{
     font-weight: 400;
 
 }
+
+#testimonial-header{
+    padding-top: 61px;
+    padding-left: 22%;
+}
+
+#comment-header{
+    padding-left: 25%;
+    padding-top: 15px;
+}
+
+#row-testimonials{
+    padding-left: 97px;
+}
