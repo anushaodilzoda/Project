@@ -33,6 +33,7 @@ function initStoredSearch(){
     }, 300);
 }
 
+
 /* * * * * * * Listeners * * * * * * */
 
 $("#search-btn").on("click",function(){

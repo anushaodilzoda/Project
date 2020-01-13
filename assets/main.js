@@ -33,6 +33,55 @@ function saveSearchVars(){
     localStorage.setItem("search_vars",JSON.stringify(obj));
 }
 
+//search by type Hatem
+$("#chinese").on("click", function(){
+    performSearch(type == "chinese");
+
+});
+
+$("#american").on("click", function(){
+    
+});
+
+$("#italian").on("click", function(){
+    
+});
+
+$("#japanese").on("click", function(){
+    
+});
+
+$("#texmex").on("click", function(){
+    
+});
+
+$("#pasta").on("click", function(){
+    
+});
+
+$("#pizza").on("click", function(){
+    
+});
+
+$("#burger").on("click", function(){
+    
+});
+
+$("#sushi").on("click", function(){
+    
+});
+
+$("#sandwhich").on("click", function(){
+    
+});
+
+$("#steak").on("click", function(){
+    
+});
+
+$("#seafood").on("click", function(){
+    
+});
 
 /* * * * * * * Listeners * * * * * * */
 $("#home_search-btn").on("click", function(){

@@ -261,6 +261,10 @@ border-bottom: 2px solid #e67e22;
     margin: 0;
     overflow: hidden;
     background: #000;
+    position:relative;
+    color:White;
+    text-align:center;
+    font-size:40px;
 }
 .meal-photo img {
     opacity: 0.7;
@@ -273,6 +277,15 @@ border-bottom: 2px solid #e67e22;
     opacity: 1;
     transform: scale(1.03);
 
+}
+
+.meal-header{
+    top:50%;
+    left:50%;
+    position:absolute;
+    
+
+    
 }
 
 /* ........................................... */
