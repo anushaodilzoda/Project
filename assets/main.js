@@ -41,10 +41,6 @@ $(".meal-photo").on("click", function(){
 
 });
 
-$("#hungry").on("click", function(){
-    console.log("testing");
-});
-
 /* * * * * * * Listeners * * * * * * */
 $("#home_search-btn").on("click", function(){
     initSearchVars();
