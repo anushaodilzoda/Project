@@ -106,14 +106,10 @@ $("#email_send_btn").on("click",function(){
                prepAndSendEmail(email,subject,message);
             //WIP community email list as recievers
             }
-           
+
         }
-        
+
     }
-
-        
-
-
 })
 
 
