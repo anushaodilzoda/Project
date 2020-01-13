@@ -35,10 +35,11 @@ function saveSearchVars(){
 
 //search by type Hatem
 $("#chinese").on("click", function(){
-    performSearch(type == "chinese");
+  //  performSearch(type == "chinese");
+  console.log("has been clicked!");
 
 });
-
+/*
 $("#american").on("click", function(){
     
 });
@@ -82,6 +83,7 @@ $("#steak").on("click", function(){
 $("#seafood").on("click", function(){
     
 });
+*/
 
 /* * * * * * * Listeners * * * * * * */
 $("#home_search-btn").on("click", function(){
