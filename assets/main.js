@@ -89,6 +89,7 @@ $("#checkAll").click(function(){
 });
 
 $("#subscribeSubmitBtn").on("click", function(){
+    event.preventDefault();
     var obj={
         name: $("#signup_name").val(),
         email: $("#signup_email").val(),
