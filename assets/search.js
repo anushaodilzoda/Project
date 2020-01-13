@@ -92,17 +92,24 @@ $("#email_recievers").on("change",function(){
 $("#email_send_btn").on("click",function(){
    var recieverType=$("#email_recievers").val();
    var recieverEmail="";
+   var subject=$("#subject").val(),
+   message=$("#message").val();
+   message= message.split("\n").join("</br>");
     if(recieverType=="Custom Email Address"){
         recieverEmail=$("#custom_email").val();
-    }else{
-        //WIP community email list as recievers
-    }
-    var subject=$("#subject").val(),
-        message=$("#message").val();
-        message= message.split("\n").join("</br>");
         prepAndSendEmail(recieverEmail,subject,message);
-
-
+    }else{
+        for(var i=0; i<localStorage.length; i++){
+            var key=localStorage.key(i);
+            if(key.startsWith("member")){
+             var email=JSON.parse(localStorage.getItem(key)).email;
+               prepAndSendEmail(email,subject,message);
+            //WIP community email list as recievers
+            }
+           
+        }
+        
+    }
 })
 
 
