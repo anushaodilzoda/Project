@@ -264,7 +264,7 @@ border-bottom: 2px solid #e67e22;
     position:relative;
     color:White;
     text-align:center;
-    font-size:40px;
+    font-size:30px;
 }
 .meal-photo img {
     opacity: 0.7;
@@ -487,6 +487,11 @@ footer {
 .footer-nav {
     list-style: none;
     float: left;
+    transform:translate(50%);
+}
+
+#copyright{
+    transform:translate(50%);
 }
 .social-links {
     list-style: none;
