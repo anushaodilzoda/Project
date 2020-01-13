@@ -54,8 +54,14 @@ $("#searcharea").on("change",function(){
 function displaySignedinUser(){
 var signedInUser = localStorage.getItem("Signed in user: ");
 if(signedInUser!=null){
-$("#displayName").text("Hi, "+getObjByEmail(signedInUser).name);
+    var obj=getObjByEmail(signedInUser);
+    $("#displayName").text("Hi, "+obj.name);
+    $("#contact_name").val(obj.name);
+    $("#contact_email").val(obj.email);
 }
+
+}
+
 
 var favFood=[];
 $(document).ready(function(){
@@ -88,7 +94,7 @@ $("#subscribeSubmitBtn").on("click", function(){
 
 
 $("#signin_submit").on("click", function(){
-    event.preventDefault();
+    //event.preventDefault();
     var enteredEmail=$("#signin_email").val();
     var enteredPassword=$("#signin_password").val();
    
@@ -103,7 +109,6 @@ if(getObjByEmail(enteredEmail)!=null){
           $("#modal_5 .close").click();
 
           $("#displayName").text("Hi, "+getObjByEmail(enteredEmail).name);
-          console.log(enteredEmail.slice(0,indexOf("@")));
         }else{
             $("div#errMsg").css("color", "red");
             $("div#errMsg").html("Your email or password is incorrect! Please try again!");
@@ -119,6 +124,13 @@ if(getObjByEmail(enteredEmail)!=null){
 })
 
 
+$("#add_comment_btn").on("click",function(){
+    event.preventDefault();
+    $("#comment_name").val(getSignedUserName());
+    
+})
+
+
 $("#save_comment_btn").on("click", function(){
     event.preventDefault();
     var name=$("#comment_name").val();
@@ -128,18 +140,13 @@ $("#save_comment_btn").on("click", function(){
 
 })
 
-function getObjByEmail(email){
-   var matchingObj= JSON.parse(localStorage.getItem("member_"+email));;
-   return matchingObj;
-}
-
 $("#signout_button").on("click", function(){
     localStorage.removeItem("Signed in user: ");
     location.reload();
 })
 
 
-}
+
 
 
 $("#contact_send_btn").on("click", function(){

@@ -267,10 +267,16 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
             websiteToShare=selected.website,
             phone=selected.phone;
             nameToShare=selected.name
-        $("#message").val("Hi,\nThe restaurant that I would like to share with you is:"+
-                            "\n\n"+nameToShare+"\n"+address+"\n"+phone+"\n"+websiteToShare+"\n\n"+
-                                "* * * Optional: You may want to share more details about your experience as well as the dishes that you would like to recommend. * * *");
-    }
+            if(localStorage.getItem("Signed in user: ")!=null){
+                $("#message").val("Hi, This is "+getSignedUserName()+".\n\nThe restaurant that I would like to share with you is:"+
+                "\n\n"+nameToShare+"\n"+address+"\n"+phone+"\n"+websiteToShare+"\n\n"+
+                    "* * * Optional: You may want to share more details about your experience as well as the dishes that you would like to recommend. * * *");
+            }else{
+                $("#message").val("Hi,\nThe restaurant that I would like to share with you is:"+
+                                    "\n\n"+nameToShare+"\n"+address+"\n"+phone+"\n"+websiteToShare+"\n\n"+
+                                        "* * * Optional: You may want to share more details about your experience as well as the dishes that you would like to recommend. * * *");
+            }
+       }
 
 
     function prepAndSendEmail(recieverEmail, subject, message){
@@ -380,5 +386,15 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
     
     }
 
+    function getObjByEmail(email){
+        var matchingObj= JSON.parse(localStorage.getItem("member_"+email));;
+        return matchingObj;
+     }
 
-        
+    function getSignedUserName(){
+        if(localStorage.getItem("Signed in user: ")!=null){
+            console.log("getting name");
+        var userObj=getObjByEmail(localStorage.getItem("Signed in user: "));
+        return userObj.name;
+        }
+    }
