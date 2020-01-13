@@ -224,3 +224,16 @@ event.preventDefault();
 }
 });
 
+
+$(".meal-photo").on("click", function(){
+    event.preventDefault();
+    var value=$(this).find("div").html();
+    console.log("val: "+value);
+    $("#type").val(value);
+    clickSearch();
+});
+function clickSearch(){
+    document.getElementById("home_search-btn").click();
+
+}
+
