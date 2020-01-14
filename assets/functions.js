@@ -59,7 +59,7 @@ function getAjaxSetting(queryUrl){
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-            "x-rapidapi-key": "27228f3928mshecf3768460bfdd6p1a3d7fjsn04c99c07c026"
+            "x-rapidapi-key": "89f48f102dmsha286536059ab923p14d588jsn048cd5bbda16"
         }
     }
     return settings;
