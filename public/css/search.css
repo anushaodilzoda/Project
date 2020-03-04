@@ -4,7 +4,7 @@
     padding-left: 3%;
     padding-right: 5%;
     padding-bottom: 2%;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.91)), url(images/restaurant.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.91)), url(../assets/images/restaurant.jpg);
     background-size: cover;
     color: white;
     background-attachment: fixed;
@@ -12,7 +12,7 @@
 
 #home_search_box{
     padding: 5% 10%;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.91)), url(images/restaurant.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.91)), url(../assets/images/restaurant.jpg);
     background-size: cover;
     color: white;
     background-attachment: fixed;
@@ -378,4 +378,15 @@ input#signin_submit{
 
 #row-testimonials{
     padding-left: 97px;
+}
+
+#floater {
+    position: absolute;
+    top: 100px;
+    right: 1px;
+    width: 100px;
+    height: 100px;
+    -webkit-transition: all 2s ease-in-out;
+    transition: all 2s ease-in-out;
+    z-index: 1;
 }

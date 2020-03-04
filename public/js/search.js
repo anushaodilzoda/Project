@@ -81,6 +81,7 @@ $("#result_container").on("click",".share_btn",function(){
 });
 
 
+
 $("#email_recievers").on("change",function(){
     if($("#email_recievers").val()=="Custom Email Address"){
         $("#custom_email").show();
@@ -111,6 +112,19 @@ $("#email_send_btn").on("click",function(){
 
     }
 })
+
+$(window).scroll(function() {
+    var winScrollTop = $(window).scrollTop();
+    var winHeight = $(window).height();
+    var floaterHeight = $('#floater').outerHeight(true);
+    //true so the function takes margins into account
+    var fromBottom = 20;
+
+    var top = winScrollTop + winHeight - floaterHeight - fromBottom;
+    $('#floater').css({'top': top + 'px'});
+});
+
+
 
 
 
