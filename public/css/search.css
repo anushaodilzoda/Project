@@ -9,6 +9,17 @@
     color: white;
     background-attachment: fixed;
 }
+#search_body2{
+    background-color: #555;
+    padding-top: 2%;
+    padding-left: 3%;
+    padding-right: 5%;
+    padding-bottom: 2%;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.91)), url(../assets/images/restaurant.jpg);
+    background-size: cover;
+    color: white;
+    background-attachment: fixed;
+}
 
 #home_search_box{
     padding: 5% 10%;
