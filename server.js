@@ -1,6 +1,6 @@
 var express = require("express");
 const path=require("path");
-
+var exphbs  = require('express-handlebars')
 
 
 var app = express();
@@ -15,6 +15,13 @@ app.use(express.json());
 
 
 
+app.engine('handlebars', exphbs({
+        extname: 'handlebars',
+        layoutsDir:'views',
+}));
+app.set("view engine", "handlebars");
+
+
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
 });
@@ -24,7 +31,13 @@ app.get("/search", function(req, res) {
 });
 
 app.get("/places", function(req, res) {
-  res.sendFile(path.join(__dirname, "public/places.html"));
+  var data=[{
+    id:1,
+    name: "name"
+  }]
+  
+  res.render("places", {places:data});
+  // res.sendFile(path.join(__dirname, "public/places.html"));
 });
 
 

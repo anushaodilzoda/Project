@@ -44,6 +44,7 @@ function performSearch(htmlDivId,searchArea,zipCode,distance,type,name,rating){
             queryUrl="https://tripadvisor1.p.rapidapi.com/restaurants/list-by-latlng?limit=100&currency=USD&distance="+distance+"&lunit=mi&lang=en_US&min_rating="+rating+"&latitude="+lat+"&longitude="+lon;
             $.ajax(getAjaxSetting(queryUrl)).done(function (response) {
                result=filterResponse(response,type,name);
+               console.log("location_id====>: "+result[0].location_id);
                displayResult(htmlDivId,result);
             });
         }

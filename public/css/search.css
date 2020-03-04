@@ -401,3 +401,27 @@ input#signin_submit{
     transition: all 2s ease-in-out;
     z-index: 1;
 }
+
+#places_search_body a{
+    width: 150px;
+    height: 40px;
+}
+
+#places_search_body{
+    margin-top: 100px;
+    margin-left: 10%;
+}
+
+#search_keyword{
+    border-color: white;
+    border: 3px solid #e66f07;
+    color: white important;
+}
+
+#search_keyword{
+    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-left: 40%;
+    height: 40px;
+    border-radius: 50px !important;
+}
