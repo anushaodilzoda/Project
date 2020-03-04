@@ -23,6 +23,10 @@ app.get("/search", function(req, res) {
     res.sendFile(path.join(__dirname, "public/search.html"));
 });
 
+app.get("/places", function(req, res) {
+  res.sendFile(path.join(__dirname, "public/places.html"));
+});
+
 
 // app.post("/api/burgers", function(req, res) {
 //     orm.insert("burgers", "name", req.body.name, function(data){
