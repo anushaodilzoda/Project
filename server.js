@@ -4,7 +4,7 @@ const path=require("path");
 
 var app = express();
 
-var PORT = process.env.PORT || 8085;
+var PORT = process.env.PORT || 8080;
 
  app.use(express.static(__dirname +"/public/"));
 app.use(express.static(path.join(__dirname, '/public')));
