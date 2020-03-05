@@ -9,7 +9,7 @@
     color: white;
     background-attachment: fixed;
 }
-#search_body2{
+#search_body2, #search_body3{
     background-color: #555;
     padding-top: 2%;
     padding-left: 3%;
@@ -20,6 +20,10 @@
     color: white;
     background-attachment: fixed;
 }
+#search_body3{
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.91)), url(../assets/images/disney_pic.png);
+}
+
 
 #home_search_box{
     padding: 5% 10%;
