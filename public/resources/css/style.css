@@ -139,6 +139,7 @@ input[type=submit] {
     
 }
 
+  
 .btn-full:link,
 .btn-full:visited, 
 input[type=submit] {
@@ -167,6 +168,14 @@ input[type=submit]:active {
      
 }
 
+#floater:hover,
+#floater:active {
+    border: 1px solid #cf6d17; 
+     font-weight: 1000;
+}
+    #floater {
+    margin-right: 50px;
+}
 
 .btn-ghost:hover,
 .btn-ghost:active{
@@ -177,7 +186,6 @@ input[type=submit]:active {
 /* HEADER */
 /* ........................................... */
 
-
 header {
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(img/hero.jpg);
     height: 100vh;
@@ -185,6 +193,7 @@ header {
     background-position: center;
     background-attachment: fixed;
 }
+
     .hero-text-box {
         position: absolute;
         width: 1140px;
