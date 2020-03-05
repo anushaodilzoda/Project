@@ -1,567 +1,574 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
-        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
-        <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
-        <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/search.css">
-        <title>Toxic Sushi</title>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
+        <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/search.css">
+        <title>Toxic Sushi</title>
 
-    </head>
-    <body>
-        <header>
-            <nav>
-                <div class="row">
-                    <img src="resources/img/ts logo.jpg" alt="toxic sushi logo" class="logo rounded-circle">
-                    
-                </div>
-            </nav>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="row">
+                    <img src="resources/img/ts logo.jpg" alt="toxic sushi logo" class="logo rounded-circle">
+                    
+                </div>
+            </nav>
 
-            <!-- <ul class="main-nav">
-                <li><a href="#" id="subscribe-btn" data-toggle="modal" data-target="#modal_4">Sign up</a></li>
-               <li><a href="#" id="subscribe-btn" data-toggle="modal" data-target="#modal_5">Sign in</a></li>
-               <li><a href="#" id="signout_button" >Sign out</a></li>
+         
+                      <div class="dropdown">
+                
+                                <div  style="display:none" id="mySidebar">
+                                        <button class="w3-bar-item w3-button" onclick="w3_close()">&times;</button>
+                                        <a class="w3-bar-item w3-button" id="subscribe-btn" data-toggle="modal" data-target="#modal_4">Sign up</a>
+                                       <a class="w3-bar-item w3-button" id="subscribe-btn" data-toggle="modal" data-target="#modal_5">Sign in</a>
+                                        <a class="w3-bar-item w3-button" id="signout_button">Sign out</a>
+                                      </div>
+                                    
+                                      <button id="omo" class ="w3-button w3-black w3-large" onclick="w3_open()">&#9776;</button>
+                                      
+                            </div>
 
-               <h4 id="displayName"></h4>
-            </ul> -->
-          
-                  <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Dropdown button
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                               <li><a href="#" id="subscribe-btn" data-toggle="modal" data-target="#modal_4">Sign up</a></li> 
-                                <li><a href="#" id="subscribe-btn" data-toggle="modal" data-target="#modal_5">Sign in</a></li>
-                                <li><a href="#"  id="signout_button">Sign out</a></li>
-                        </div>
-                      </div>
+            <div class="hero-text-box">
+                <h1>Find the best <br> of what you're hungry for</h1>
+                <a class="btn btn-full" href="#home_search_box"> I'm hungry </a>
+                <a class="btn btn-ghost" href="#comment-header"> Show me more </a>
+            </div>
 
+    </header>
+   
 
-            <div class="hero-text-box">
-                <h1>Find the best <br> of what you're hungry for</h1>
-                <a class="btn btn-full" href="#home_search_box"> I'm hungry </a>
-                <a class="btn btn-ghost" href="#comment-header"> Show me more </a>
-            </div>
+    <div id="home_search_box">
+            <h2 id="search_box_label">Search restaurants</h2>
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Search By</label>
+                <div class="col-sm-3">
+                    <select class="form-control" id="searcharea" required>
+                        <option selected value="Current Location">Current Location</option>
+                        <option id="zipcode_option">Zip Code</option>
+                        
+                    </select>
+                </div>
+                <label class="col-form-label col-sm-2">Zip Code</label>
+                <div class="col-sm-3">
+                    <input class="form-control" id="zipcode" placeholder="Enter the zip code" required>
+                </div>
+                </div>
+          <div class="form-group row" id="name_section">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Distance (mile)</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="distance" value="3">
+                </div>
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Type</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="type" required>
+                    <option selected value="All">All</option>
+                    <option>American</option>
+                    <option>Burgers</option>
+                    <option>Chinese</option>
+                    <option>Italian</option>
+                    <option>Japanese</option>
+                    <option>Mexican</option>
+                    <option>Pasta</option>
+                    <option>Pizza</option>
+                    <option>Sandwiches</option>
+                    <option>Seafood</option>
+                    <option>Steak</option>
+                    <option>Sushi</option>
+                  </select>
+                </div>
+          </div>
 
-    </header>
-   
+             <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Min Rating</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="rating" required>
+                    <option selected value="3">3</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                  </div>
+          <label for="colFormLabel" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-3">
+                    <input type="text" class="form-control" id="place_name" value="All">
+            </div>
+             </div>
+             <a class="btn btn-full" href="search" id="home_search-btn">Search</a>    
+        </div>
 
-    <div id="home_search_box">
-            <h2 id="search_box_label">Search restaurants</h2>
-            <div class="form-group row">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">Search By</label>
-                <div class="col-sm-3">
-                    <select class="form-control" id="searcharea" required>
-                        <option selected value="Current Location">Current Location</option>
-                        <option id="zipcode_option">Zip Code</option>
-                        
-                    </select>
-                </div>
-                <label class="col-form-label col-sm-2">Zip Code</label>
-                <div class="col-sm-3">
-                    <input class="form-control" id="zipcode" placeholder="Enter the zip code" required>
-                </div>
-                </div>
-          <div class="form-group row" id="name_section">
-            <label for="colFormLabel" class="col-sm-2 col-form-label">Distance (mile)</label>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control" id="distance" value="3">
-                </div>
-                <label for="colFormLabel" class="col-sm-2 col-form-label">Type</label>
-                <div class="col-sm-3">
-                  <select class="form-control" id="type" required>
-                    <option selected value="All">All</option>
-                    <option>American</option>
-                    <option>Burgers</option>
-                    <option>Chinese</option>
-                    <option>Italian</option>
-                    <option>Japanese</option>
-                    <option>Mexican</option>
-                    <option>Pasta</option>
-                    <option>Pizza</option>
-                    <option>Sandwiches</option>
-                    <option>Seafood</option>
-                    <option>Steak</option>
-                    <option>Sushi</option>
-                  </select>
-                </div>
-          </div>
+        <!-- sign up-->
+        <div id="modal_4" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <section class="section-form">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                    <div class="row">
+                        <h2>Get an update on your community favorites!</h2>
+                    </div>
+                    <div class="row">
+                        <form method="post" action="#" class="contact-form">
+                            <div class="row">
+                            <div class="col col-md-2">
+                                <label for="name">Name</label>
+                            </div>
+                            <div class="col-md-6" >
+                            <input type="text" name="name" class="form-control" id="signup_name" placeholder="Enter your name" required>
+                            </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col col-md-2">
+                                        <label for="email">Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <input type="email" name="email" class="form-control" id="signup_email" placeholder="Enter your email" required>
+                                </div>
+                            </div> 
+ 
+                            <div class="row">
+                                <div class="col col-md-2">
+                                    <label for="email">Password</label>
+                                </div>
+                                <div class="col-md-6">
+                                <input type="text"  name="password" class="form-control" id="signup_password" placeholder="Enter your password" required>
+                            </div>
+                        </div> 
+ 
+                       
+                         <div class="form-group row">
+                            <label for="colFormLabel" class="col-md-2">City</label>
+                            <div class="col-md-6">
+                                <input type="text" id="signup_city" class="form-control" placeholder="Enter your city" required>
+                            </div>
+                         </div>
+                         <div class="form-group row">
+                              <label for="colFormLabel" class="col-md-2" >State</label>
+                        <div class="col-md-6">
+                            <select class="form-control" id="signup_state">
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District Of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>               
+                        </div>
+                     </div>
 
-             <div class="form-group row">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">Min Rating</label>
-                <div class="col-sm-3">
-                  <select class="form-control" id="rating" required>
-                    <option selected value="3">3</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                  </div>
-          <label for="colFormLabel" class="col-sm-2 col-form-label">Name</label>
-            <div class="col-sm-3">
-                    <input type="text" class="form-control" id="place_name" value="All">
-            </div>
-             </div>
-             <a class="btn btn-full" href="search" id="home_search-btn">Search</a>    
-        </div>
+            
+ 
+                            <div class="row">
+                                    <div class="col span-1-of-3">
+                                        <label for="find-us">What types of food would you like to eat?</label>
+                                    </div>
+                                    <div class="col span-2-of-3">
+                                        <input type="checkbox" class="check" value="American"/>American
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Burgers"/>Burgers
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Chinese"/>Chinese
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Italian"/>Italian
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Japanese">Japanese
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Mexican">Mexican
+                                        <br/>
+                                        <input type="checkbox" id="checkAll" value="Check All">Check All
+                                        <br/>
+                                       </div>
+                                       <div class="col span-3-of-3">
+                                        <input type="checkbox" class="check" value="Pasta">Pasta
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Pizza">Pizza
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Sandwiches"/>Sandwiches
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Seafood"/>Seafood
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Steak"/>Steak
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Sushi"/>Sushi
+                                        <br/>
 
-        <!-- sign up-->
-        <div id="modal_4" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <section class="section-form">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                    <div class="row">
-                        <h2>Get an update on your community favorites!</h2>
-                    </div>
-                    <div class="row">
-                        <form method="post" action="#" class="contact-form">
-                            <div class="row">
-                            <div class="col col-md-2">
-                                <label for="name">Name</label>
-                            </div>
-                            <div class="col-md-6" >
-                            <input type="text" name="name" class="form-control" id="signup_name" placeholder="Enter your name" required>
-                            </div>
-                            </div>
-                            <div class="row">
-                                    <div class="col col-md-2">
-                                        <label for="email">Email</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <input type="email" name="email" class="form-control" id="signup_email" placeholder="Enter your email" required>
-                                </div>
-                            </div> 
- 
-                            <div class="row">
-                                <div class="col col-md-2">
-                                    <label for="email">Password</label>
-                                </div>
-                                <div class="col-md-6">
-                                <input type="text"  name="password" class="form-control" id="signup_password" placeholder="Enter your password" required>
-                            </div>
-                        </div> 
- 
-                       
-                         <div class="form-group row">
-                            <label for="colFormLabel" class="col-md-2">City</label>
-                            <div class="col-md-6">
-                                <input type="text" id="signup_city" class="form-control" placeholder="Enter your city" required>
-                            </div>
-                         </div>
-                         <div class="form-group row">
-                              <label for="colFormLabel" class="col-md-2" >State</label>
-                        <div class="col-md-6">
-                            <select class="form-control" id="signup_state">
-                                <option value="AL">Alabama</option>
-                                <option value="AK">Alaska</option>
-                                <option value="AZ">Arizona</option>
-                                <option value="AR">Arkansas</option>
-                                <option value="CA">California</option>
-                                <option value="CO">Colorado</option>
-                                <option value="CT">Connecticut</option>
-                                <option value="DE">Delaware</option>
-                                <option value="DC">District Of Columbia</option>
-                                <option value="FL">Florida</option>
-                                <option value="GA">Georgia</option>
-                                <option value="HI">Hawaii</option>
-                                <option value="ID">Idaho</option>
-                                <option value="IL">Illinois</option>
-                                <option value="IN">Indiana</option>
-                                <option value="IA">Iowa</option>
-                                <option value="KS">Kansas</option>
-                                <option value="KY">Kentucky</option>
-                                <option value="LA">Louisiana</option>
-                                <option value="ME">Maine</option>
-                                <option value="MD">Maryland</option>
-                                <option value="MA">Massachusetts</option>
-                                <option value="MI">Michigan</option>
-                                <option value="MN">Minnesota</option>
-                                <option value="MS">Mississippi</option>
-                                <option value="MO">Missouri</option>
-                                <option value="MT">Montana</option>
-                                <option value="NE">Nebraska</option>
-                                <option value="NV">Nevada</option>
-                                <option value="NH">New Hampshire</option>
-                                <option value="NJ">New Jersey</option>
-                                <option value="NM">New Mexico</option>
-                                <option value="NY">New York</option>
-                                <option value="NC">North Carolina</option>
-                                <option value="ND">North Dakota</option>
-                                <option value="OH">Ohio</option>
-                                <option value="OK">Oklahoma</option>
-                                <option value="OR">Oregon</option>
-                                <option value="PA">Pennsylvania</option>
-                                <option value="RI">Rhode Island</option>
-                                <option value="SC">South Carolina</option>
-                                <option value="SD">South Dakota</option>
-                                <option value="TN">Tennessee</option>
-                                <option value="TX">Texas</option>
-                                <option value="UT">Utah</option>
-                                <option value="VT">Vermont</option>
-                                <option value="VA">Virginia</option>
-                                <option value="WA">Washington</option>
-                                <option value="WV">West Virginia</option>
-                                <option value="WI">Wisconsin</option>
-                                <option value="WY">Wyoming</option>
-                            </select>				
-                        </div>
-                     </div>
-
-            
- 
-                            <div class="row">
-                                    <div class="col span-1-of-3">
-                                        <label for="find-us">What types of food would you like to eat?</label>
-                                    </div>
-                                    <div class="col span-2-of-3">
-                                        <input type="checkbox" class="check" value="American"/>American
-                                        <br/>
-                                        <input type="checkbox" class="check" value="Burgers"/>Burgers
-                                        <br/>
-                                        <input type="checkbox" class="check" value="Chinese"/>Chinese
-                                        <br/>
-                                        <input type="checkbox" class="check" value="Italian"/>Italian
-                                        <br/>
-                                        <input type="checkbox" class="check" value="Japanese">Japanese
-                                        <br/>
-                                        <input type="checkbox" class="check" value="Mexican">Mexican
-                                        <br/>
-                                        <input type="checkbox" id="checkAll" value="Check All">Check All
-                                        <br/>
-                                       </div>
-                                       <div class="col span-3-of-3">
-                                        <input type="checkbox" class="check" value="Pasta">Pasta
-                                        <br/>
-                                        <input type="checkbox" class="check" value="Pizza">Pizza
-                                        <br/>
-                                        <input type="checkbox" class="check" value="Sandwiches"/>Sandwiches
-                                        <br/>
-                                        <input type="checkbox" class="check" value="Seafood"/>Seafood
-                                        <br/>
-                                        <input type="checkbox" class="check" value="Steak"/>Steak
-                                        <br/>
-                                        <input type="checkbox" class="check" value="Sushi"/>Sushi
-                                        <br/>
-
-                                        </div>
-                            </div> 
-            
-                    <div class="row">
-                            <label>&nbsp;</label>
-                        <input type="submit" id="subscribeSubmitBtn" data-dismiss="modal" href="#"></input>
-                    
-                </div>      
-                        </form>
-                    </div>
-                    
-                </section>
-              </div>
-            </div>
-          </div>
+                                        </div>
+                            </div> 
+            
+                    <div class="row">
+                            <label>&nbsp;</label>
+                        <input type="submit" id="subscribeSubmitBtn" data-dismiss="modal" href="#"></input>
+                    
+                </div>      
+                        </form>
+                    </div>
+                    
+                </section>
+              </div>
+            </div>
+          </div>
 
 
- <!-- sign in modal-->
- <div id="modal_5" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-                
-                <div class="row">
-                        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                          <div class="card card-signin my-5">
-                            <div class="card-body">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                          </button>
-                              <h5 class="card-title text-center">Sign In</h5>
-                              <form class="form-signin">
-                                <div class="form-label-group">
-                                        <label for="inputEmail">Email address</label>
-                                  <input type="email" id="signin_email" class="form-control" placeholder="Email address" required autofocus>
-                                </div>
-                  
-                                <div class="form-label-group">
-                                        <label for="inputPassword">Password</label>
-                                  <input type="password" id="signin_password" class="form-control" placeholder="Password" required>
-                                 
-                                </div>
-                  
-                                <!-- <div class="custom-control custom-checkbox mb-3" >
-                                        <label class="custom-control-label" for="customCheck1">Remember password</label>
-                                  <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                  
-                                </div> -->
-                                <div id="errMsg"></div>
-                                <input type="submit" id="signin_submit"  href="#"></input>
-                                <hr class="my-4">
-                                <!-- <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
-                                <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button> -->
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-          </div>
-        </div>
-      </div>
+ <!-- sign in modal-->
+ <div id="modal_5" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+                
+                <div class="row">
+                        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                          <div class="card card-signin my-5">
+                            <div class="card-body">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                              <h5 class="card-title text-center">Sign In</h5>
+                              <form class="form-signin">
+                                <div class="form-label-group">
+                                        <label for="inputEmail">Email address</label>
+                                  <input type="email" id="signin_email" class="form-control" placeholder="Email address" required autofocus>
+                                </div>
+                  
+                                <div class="form-label-group">
+                                        <label for="inputPassword">Password</label>
+                                  <input type="password" id="signin_password" class="form-control" placeholder="Password" required>
+                                 
+                                </div>
+                  
+                                <!-- <div class="custom-control custom-checkbox mb-3" >
+                                        <label class="custom-control-label" for="customCheck1">Remember password</label>
+                                  <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                  
+                                </div> -->
+                                <div id="errMsg"></div>
+                                <input type="submit" id="signin_submit"  href="#"></input>
+                                <hr class="my-4">
+                                <!-- <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
+                                <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button> -->
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+          </div>
+        </div>
+      </div>
 
 
 
 
 
 
-   
-      <section class="section-meals">
-        <ul class="meals-showcase">
-            <li>
-                <figure class="meal-photo" id="chinese">
-                   
-                    <img src="resources/img/chinese.jpg" alt="chinese_food">
-                    <div class="meal-header">Chinese</div> 
-                    </figure >
-            </li>
-            <li>
-                    <figure class="meal-photo" id="american">
-                        
-                        <img src="resources/img/american.jpg" alt="american_food">
-                        <div class="meal-header">American</div> 
-                    </figure>
-                </li> 
-                <li>
-                        <figure class="meal-photo" id="italian">
-                            
-                            <img src="resources/img/italian.jpg" alt="italian_food">
-                            <div class="meal-header">Italian</div> 
-                        </figure>
-                    </li>
-        
-                    <li>
-                            <figure class="meal-photo" id="japanese">
-                                
-                                <img src="resources/img/japanese.jpg" alt="japanese_food">
-                                <div class="meal-header">Japanese</div> 
-                            </figure>
-                        </li>
-                        <li>
-                                <figure class="meal-photo" id="texmex">
-                                    
-                                    <img src="resources/img/texmex.jpg" alt="tex_mex_food">
-                                    <div class="meal-header">Mexican</div> 
-                                </figure>
-                            </li>
-                            <li>
-                                    <figure class="meal-photo" id="pasta">
-                                       
-                                        <img src="resources/img/pasta.jpg" alt="pasta_food">
-                                        <div class="meal-header">Pasta</div> 
-                                    </figure>
-                                </li>
-                                <li>
-                                        <figure class="meal-photo" id="pizza">
-                                             
-                                            <img src="resources/img/pizza.jpg" alt="pizza_food">
-                                            <div class="meal-header">Pizza</div>
-                                        </figure>
-                                    </li>
-                                    <li>
-                                            <figure class="meal-photo" id="burger">
-                                                
-                                                <img src="resources/img/burger.jpg" alt="burger_food">
-                                                <div class="meal-header">Burgers</div> 
-                                            </figure>
-                                        </li>
-                                        <li>
-                                                <figure class="meal-photo" id="sushi">
-                                                    
-                                                    <img src="resources/img/sushi.jpg" alt="sushi_food">
-                                                    <div class="meal-header">Sushi</div> 
-                                                </figure>
-                                            </li>
-                                            <li>
-                                                <figure class="meal-photo" id="sandwhich">
-                                                    
-                                                    <img src="resources/img/sandwhich.jpg" alt="sandwhich_food">
-                                                    <div class="meal-header">sandwhiches</div> 
-                                                </figure>
-                                            </li>
-                                            <li>
-                                                <figure class="meal-photo" id="steak">
-                                                     
-                                                    <img src="resources/img/steak.jpg" alt="steak_food">
-                                                    <div class="meal-header">Steak</div>
-                                                </figure>
-                                            </li>
-                                            <li>
-                                                <figure class="meal-photo" id="seafood">
-                                                    
-                                                    <img src="resources/img/seafood.jpg" alt="seafood_food">
-                                                    <div class="meal-header">Seafood</div> 
-                                                </figure>
-                                            </li>
-        </ul>
-       
-    </section>
-        <section class="section-testimonials">
-            <div class="row" id="testimonial-header">
-                <h2 class="center">Our customers can't live without us</h2>
+   
+      <section class="section-meals">
+        <ul class="meals-showcase">
+            <li>
+                <figure class="meal-photo" id="chinese">
+                   
+                    <img src="resources/img/chinese.jpg" alt="chinese_food">
+                    <div class="meal-header">Chinese</div> 
+                    </figure >
+            </li>
+            <li>
+                    <figure class="meal-photo" id="american">
+                        
+                        <img src="resources/img/american.jpg" alt="american_food">
+                        <div class="meal-header">American</div> 
+                    </figure>
+                </li> 
+                <li>
+                        <figure class="meal-photo" id="italian">
+                            
+                            <img src="resources/img/italian.jpg" alt="italian_food">
+                            <div class="meal-header">Italian</div> 
+                        </figure>
+                    </li>
+        
+                    <li>
+                            <figure class="meal-photo" id="japanese">
+                                
+                                <img src="resources/img/japanese.jpg" alt="japanese_food">
+                                <div class="meal-header">Japanese</div> 
+                            </figure>
+                        </li>
+                        <li>
+                                <figure class="meal-photo" id="texmex">
+                                    
+                                    <img src="resources/img/texmex.jpg" alt="tex_mex_food">
+                                    <div class="meal-header">Mexican</div> 
+                                </figure>
+                            </li>
+                            <li>
+                                    <figure class="meal-photo" id="pasta">
+                                       
+                                        <img src="resources/img/pasta.jpg" alt="pasta_food">
+                                        <div class="meal-header">Pasta</div> 
+                                    </figure>
+                                </li>
+                                <li>
+                                        <figure class="meal-photo" id="pizza">
+                                             
+                                            <img src="resources/img/pizza.jpg" alt="pizza_food">
+                                            <div class="meal-header">Pizza</div>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                            <figure class="meal-photo" id="burger">
+                                                
+                                                <img src="resources/img/burger.jpg" alt="burger_food">
+                                                <div class="meal-header">Burgers</div> 
+                                            </figure>
+                                        </li>
+                                        <li>
+                                                <figure class="meal-photo" id="sushi">
+                                                    
+                                                    <img src="resources/img/sushi.jpg" alt="sushi_food">
+                                                    <div class="meal-header">Sushi</div> 
+                                                </figure>
+                                            </li>
+                                            <li>
+                                                <figure class="meal-photo" id="sandwhich">
+                                                    
+                                                    <img src="resources/img/sandwhich.jpg" alt="sandwhich_food">
+                                                    <div class="meal-header">sandwhiches</div> 
+                                                </figure>
+                                            </li>
+                                            <li>
+                                                <figure class="meal-photo" id="steak">
+                                                     
+                                                    <img src="resources/img/steak.jpg" alt="steak_food">
+                                                    <div class="meal-header">Steak</div>
+                                                </figure>
+                                            </li>
+                                            <li>
+                                                <figure class="meal-photo" id="seafood">
+                                                    
+                                                    <img src="resources/img/seafood.jpg" alt="seafood_food">
+                                                    <div class="meal-header">Seafood</div> 
+                                                </figure>
+                                            </li>
+        </ul>
+       
+    </section>
+        <section class="section-testimonials">
+            <div class="row" id="testimonial-header">
+                <h2 class="center">Our customers can't live without us</h2>
 
 
-            </div>
-            <div class="row" id="row-testimonials">
-                <div class="col span-1-of-3">
-                    <blockquote>
-                            Toxic Sushi is just awesome! I just launched a startup which leaves me with no time for cooking, so Toxic Sushi is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
-                            <cite><img src="resources/img/customer-1.jpg">Alberto Duncan</cite>
-                    </blockquote>
-                </div>
-                <div class="col span-1-of-3">
-                        <blockquote>
-                                Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Toxic Sushi. Me and my family are so in love!
-                                <cite><img src="resources/img/customer-2.jpg">Joana Silva</cite>
-                        </blockquote>
-                    </div>
-                    <div class="col span-1-of-3">
-                            <blockquote>
-                                    I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Toxic Sushi. Best food delivery service in the Bay Area. Keep up the great work!
-                                    <cite><img src="resources/img/customer-3.jpg">Milton Chapman</cite>
-                            </blockquote>
-                        </div>
-            </div> 
-            <a class="btn btn-full" href="#" id="add_comment_btn" data-toggle="modal" data-target="#comment_modal">Leave Comment</a>
-            
-            <!-- Add comment modal -->
-<div class="modal fade" id="comment_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <div class="row" id="name_row">
-                    <label for="validationTooltip02">Your Name:</label>
-                    <input class="form-control" id="comment_name" type="text" placeholder="Type your name...">
-                </div>
-                <div class="row">
-                    <label for="validationTooltip02">Comment:</label>
-                    <textarea id="comment_message" class="form-control" rows="4" placeholder="Type your comment here..."></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <a class="btn btn-full" href="#" id="save_comment_btn" data-dismiss="modal">Save comment</a>
-            </div>
-          </div>
-        </div>
-      </div>
-        </section>
-        <section class="section-form">
-            <div class="row" id="comment-header">
-                <h2>We're happy to hear from you</h2>
+            </div>
+            <div class="row" id="row-testimonials">
+                <div class="col span-1-of-3">
+                    <blockquote>
+                            Toxic Sushi is just awesome! I just launched a startup which leaves me with no time for cooking, so Toxic Sushi is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
+                            <cite><img src="resources/img/customer-1.jpg">Alberto Duncan</cite>
+                    </blockquote>
+                </div>
+                <div class="col span-1-of-3">
+                        <blockquote>
+                                Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Toxic Sushi. Me and my family are so in love!
+                                <cite><img src="resources/img/customer-2.jpg">Joana Silva</cite>
+                        </blockquote>
+                    </div>
+                    <div class="col span-1-of-3">
+                            <blockquote>
+                                    I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Toxic Sushi. Best food delivery service in the Bay Area. Keep up the great work!
+                                    <cite><img src="resources/img/customer-3.jpg">Milton Chapman</cite>
+                            </blockquote>
+                        </div>
+            </div> 
+            <a class="btn btn-full" href="#" id="add_comment_btn" data-toggle="modal" data-target="#comment_modal">Leave Comment</a>
+            
+            <!-- Add comment modal -->
+<div class="modal fade" id="comment_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="name_row">
+                    <label for="validationTooltip02">Your Name:</label>
+                    <input class="form-control" id="comment_name" type="text" placeholder="Type your name...">
+                </div>
+                <div class="row">
+                    <label for="validationTooltip02">Comment:</label>
+                    <textarea id="comment_message" class="form-control" rows="4" placeholder="Type your comment here..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <a class="btn btn-full" href="#" id="save_comment_btn" data-dismiss="modal">Save comment</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        </section>
+        <section class="section-form">
+            <div class="row" id="comment-header">
+                <h2>We're happy to hear from you</h2>
 
-            </div>
-            <div class="row">
-                <form method="post" action="#" class="contact-form">
-                    <div class="row">
-                    <div class="col span-1-of-3">
-                        <label for="name">Name</label>
-                    </div>
-                    <div class="col span-2-of-3">
-                    <input type="text" name="name" id="contact_name" placeholder="Your name" required>
-                    </div>
-                    </div>
-                    <div class="row">
-                            <div class="col span-1-of-3">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="col span-2-of-3">
-                            <input type="email" name="email" id="contact_email" placeholder="Your email" required>
-                        </div>
-                    </div> 
-                    <div class="row">
-                            <div class="col span-1-of-3">
-                                <label for="find-us">Reason to contact</label>
-                            </div>
-                            <div class="col span-2-of-3">
-                            <select name="find us" id="contact_reason">
-                                <option selected value="choose one">Choose one</option>
-                                <option value="signup">Signup</option>
-                                <option value="restaurants">Restaurants</option>
-                                <option value="suggestion">Suggestion</option>
-                                <option value="business">Business</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                    </div>  
-                <div class="row">
-                    <div class="col span-1-of-3">
-                        <label>Message</label>
-                    </div>
-                    <div class="col span-2-of-3">
-                    <textarea id="contact_message" name="message" placeholder="Your message"></textarea>
-                </div>
-            </div> 
-            <div class="row">
-                <div class="col span-1-of-3">
-                    <label>&nbsp;</label>
-                </div>
-                <div class="col span-2-of-3">
-                    <a class="btn btn-full" id="contact_send_btn" href="#">Send</a>
-                    <div id="contact_status"></div>
-                    <div id="contact_status_error"></div>
-            </div>
-        </div>      
-                </form>
-            </div>
-            
-        </section>
-        <footer>
-            <div class="row">
-                <div class="col span-1-of-2">
-                    <ul class="footer-nav">
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Press</a></li>
-                            <li><a href="#">iOS App</a></li>
-                            <li><a href="#">Android App</a></li>
-                        </ul>
-                    </div>
-                    <div class="col span-1-of-2">
-                        <ul class="social-links">
+            </div>
+            <div class="row">
+                <form method="post" action="#" class="contact-form">
+                    <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                    <input type="text" name="name" id="contact_name" placeholder="Your name" required>
+                    </div>
+                    </div>
+                    <div class="row">
+                            <div class="col span-1-of-3">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="col span-2-of-3">
+                            <input type="email" name="email" id="contact_email" placeholder="Your email" required>
+                        </div>
+                    </div> 
+                    <div class="row">
+                            <div class="col span-1-of-3">
+                                <label for="find-us">Reason to contact</label>
+                            </div>
+                            <div class="col span-2-of-3">
+                            <select name="find us" id="contact_reason">
+                                <option selected value="choose one">Choose one</option>
+                                <option value="signup">Signup</option>
+                                <option value="restaurants">Restaurants</option>
+                                <option value="suggestion">Suggestion</option>
+                                <option value="business">Business</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>  
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label>Message</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                    <textarea id="contact_message" name="message" placeholder="Your message"></textarea>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col span-1-of-3">
+                    <label>&nbsp;</label>
+                </div>
+                <div class="col span-2-of-3">
+                    <a class="btn btn-full" id="contact_send_btn" href="#">Send</a>
+                    <div id="contact_status"></div>
+                    <div id="contact_status_error"></div>
+            </div>
+        </div>      
+                </form>
+            </div>
+            
+        </section>
+        <footer>
+            <div class="row">
+                <div class="col span-1-of-2">
+                    <ul class="footer-nav">
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">iOS App</a></li>
+                            <li><a href="#">Android App</a></li>
+                        </ul>
+                    </div>
+                    <div class="col span-1-of-2">
+                        <ul class="social-links">
 
-                        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                        <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                        <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-                        <li><a href="#"><i class="ion-social-instagram"></i></a></li>
-                       
-                        </ul>
-                    
-                </div>
-            </div>
-            <div class="row" id="copyright">
-                <p>
-                    Copyright &copy; 2020 by Toxic Sushi. All rights reserved.
-                </p>
-            </div>
-        </footer>
-        <script src="https://smtpjs.com/v3/smtp.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="js/functions.js"></script>
-<script src="js/main.js"></script>
-    </body>
+                        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                        <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                        <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                        <li><a href="#"><i class="ion-social-instagram"></i></a></li>
+                       
+                        </ul>
+                    
+                </div>
+            </div>
+            <div class="row" id="copyright">
+                <p>
+                    Copyright &copy; 2020 by Toxic Sushi. All rights reserved.
+                </p>
+            </div>
+        </footer>
+        <script>
+               function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+ document.getElementById("omo").style.display="none";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("omo").style.display="block";
+}
+                </script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="js/functions.js"></script>
+<script src="js/main.js"></script>
+    </body>
 </html>
 
 
 
 
- 
+ 
+
