@@ -67,7 +67,8 @@ $("#result_container").on("click",".direction_btn",function(){
     event.preventDefault();
     var indexOfRestaurant=$(this).parent().parent().parent().attr("id");
     console.log("clicked: "+indexOfRestaurant);
-    displayDistance(indexOfRestaurant);
+    selected=result[indexOfRestaurant];
+    displayDistance();
 
 });
 

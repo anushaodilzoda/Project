@@ -1,4 +1,5 @@
 
+
 function searchPlaces(keyWord){
   var location_id=localStorage.getItem("location_id");
     var queryUrl="https://tripadvisor1.p.rapidapi.com/locations/search?location_id="+location_id+"&limit=30&sort=relevance&offset=0&lang=en_US&currency=USD&units=km&query="+keyWord;
@@ -9,19 +10,20 @@ function searchPlaces(keyWord){
 }
 
 
-function displayPlacesResult(htmlDivId,result){
-    result=result.data;
+function displayPlacesResult(htmlDivId,res){
+    res=res.data;
+    result=res;
     $("#loading").hide();
     $("#places_result_container").show();
     var domEl=document.getElementById(htmlDivId);
     var el=$(domEl);
     el.empty();
-    if(result.length==0){
+    if(res.length==0){
         el.css("color","#e46509");
         el.text("No matching result");
     }else{
-        for(i in result){
-            if(!result[i].result_object.photo){continue;}
+        for(i in res){
+            if(!res[i].result_object.photo){continue;}
             var row=$("<div>").attr("class","row container_div shadow rounded").attr("id",i),
                 col1=$("<div>").attr("class","col-md-7 col1"),
                 col2=$("<div>").attr("class","row col-md-5 tool_row"),
@@ -33,13 +35,13 @@ function displayPlacesResult(htmlDivId,result){
             var div1=$("<a>")
             .attr("class","result result_name")
             .attr("href","#")
-            .attr("value",result[i].result_object.photo.images.original.url)
+            .attr("value",res[i].result_object.photo.images.original.url)
             .attr("data-toggle","modal")
             .attr("data-target","#modal_3")
-            .text(result[i].result_object.name);
+            .text(res[i].result_object.name);
 
-                 span=createStarRating(result[i].result_object.rating),
-                div2= $("<div>").attr("class","result").text("Address: "+result[i].result_object.address)
+                 span=createStarRating(res[i].result_object.rating),
+                div2= $("<div>").attr("class","result").text("Address: "+res[i].result_object.address)
                 
 
             var img0=$("<img>").attr("src","assets/images/reviews.png").attr("class","reviewsImg shadow mb-5 bg-white rounded");
@@ -106,4 +108,73 @@ $("#places_result_container").on("click",".result_name",function(){
     $("#image_in_modal3").attr("src",value);
 });
 
+$("#places_result_container").on("click",".reviews_btn",function(){
+    event.preventDefault();
+    var indexOfRestaurant=$(this).parent().parent().parent().attr("id");
+    console.log("clicked: "+indexOfRestaurant);
+    selected=result[indexOfRestaurant].result_object;
+    retrieveReviews(selected.location_id,selected.num_reviews);
+});
 
+$("#places_result_container").on("click",".direction_btn",function(){
+    event.preventDefault();
+    var indexOfRestaurant=$(this).parent().parent().parent().attr("id");
+    console.log("clicked: "+indexOfRestaurant);
+    selected=result[indexOfRestaurant].result_object;
+    displayDistance();
+
+});
+
+
+$("#places_result_container").on("click",".share_btn",function(){
+    event.preventDefault();
+    var indexOfRestaurant=$(this).parent().parent().parent().attr("id");
+    console.log("clicked: "+indexOfRestaurant);
+    autofill(result[indexOfRestaurant].result_object);
+
+});
+
+
+
+$("#email_recievers").on("change",function(){
+    if($("#email_recievers").val()=="Custom Email Address"){
+        $("#custom_email").show();
+        }else{
+            $("#custom_email").hide();
+        }
+});
+
+$("#email_send_btn").on("click",function(){
+   var recieverType=$("#email_recievers").val();
+   var recieverEmail="";
+   var subject=$("#subject").val(),
+   message=$("#message").val();
+   message= message.split("\n").join("</br>");
+    if(recieverType=="Custom Email Address"){
+        recieverEmail=$("#custom_email").val();
+        prepAndSendEmail(recieverEmail,subject,message);
+    }else{
+        for(var i=0; i<localStorage.length; i++){
+            var key=localStorage.key(i);
+            if(key.startsWith("member")){
+             var email=JSON.parse(localStorage.getItem(key)).email;
+               prepAndSendEmail(email,subject,message);
+            //WIP community email list as recievers
+            }
+
+        }
+
+    }
+})
+
+function autofill(obj){
+        if(localStorage.getItem("Signed in user: ")!=null){
+            $("#message").val("Hi, This is "+getSignedUserName()+".\n\nI would like to share with you:"+
+            "\n\n"+obj.name+"\n"+obj.address+"\n\n"+
+                "* * * Optional: You may want to share more details about your experience as well as the dishes that you would like to recommend. * * *");
+        }else{
+            $("#message").val("Hi,\nI would like to share with you:"+
+                                "\n\n"+obj.name+"\n"+obj.address+"\n\n"+
+                                    "* * * Optional: You may want to share more details about your experience as well as the dishes that you would like to recommend. * * *");
+        }
+   }

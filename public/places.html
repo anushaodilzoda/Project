@@ -63,6 +63,85 @@
                         </div>
                         </div>
                     </div>
+                                                              <!--  reviews modal-->
+
+  <div class="modal fade bd-example-modal-lg" id="modal_0" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="review_modal_title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="review_container" class="modal-body">
+            </div>
+          </div>
+        </div>
+      </div>
+  
+                              <!--  direction modal-->
+          <div id="modal_1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header status">
+                  <img id="car_img" src="assets/images/car.png">
+                  <span id="duration_status"></span>
+                  <span id="distance_status"></span>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+                <div id="map"></div>
+              </div>
+            </div>
+          </div>
+         
+                              <!--  share modal -->
+          <div id="modal_2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                  <div class="status">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                  </div>
+                <div  id="modal_2_content">
+                  <div class="row" id="to_row">
+                  <div class="col-md-6">
+                   <label for="validationTooltip02">To:</label>
+                  <select id="email_recievers" class="form-control">
+                    <option selected value="Community">Community</option>
+                    <option>Custom Email Address</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6" id="custom_email_div">
+                    <input class="form-control" id="custom_email" type="text" placeholder="Type the email address">
+                  </div>
+                </div>
+                  <div class="row">
+                    <label for="validationTooltip02">Subject:</label>
+                    <input type="text" class="form-control" id="subject" value="I would like to share my great experience.">
+                  </div>
+                  <div class="row">
+                    <label for="validationTooltip02">Message:</label>
+                    <textarea id="message" class="form-control"></textarea>
+                  </div>
+                    <a href="#" id="email_send_btn" class="btn btn-full" data-toggle="modal" data-target="#modal_3" data-dismiss="modal">Send</a>
+                  </div>                
+            </div>
+          </div>
+        </div>
+  
+        
+                  <!--  sent modal -->
+                  <div id="modal_3" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                          <h5 id="sent">Sent</h5>
+                      </div>
+                    </div>
+                  </div>
 
 </div>
     <footer>

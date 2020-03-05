@@ -5,6 +5,7 @@ var lat="undefined";
 var userLon="undefined";
 var userLat="undefined";
 var result="undefined";
+var selected="undefined";
 //localStorage.clear();
 
 /* * * * * * * Functions * * * * * * */
@@ -215,9 +216,7 @@ function displayResult(htmlDivId,result){
 
 var map;
 /* following function displays distance of the restaurant in the model window*/
-function displayDistance(indexOfRestaurant){
-    var selected=result[indexOfRestaurant];
-
+function displayDistance(){
     if(userLon=="undefined" && userLat=="undefined"){
         console.log("getting user location");
         getUserLocation();
@@ -225,6 +224,8 @@ function displayDistance(indexOfRestaurant){
         var interval1=setInterval(function(){
             if(userLon!="undefined" && userLat!="undefined"){
                 clearInterval(interval1);
+                console.log("user location: "+userLat+" "+userLon);
+                console.log("place location: "+selected.latitude+" "+selected.longitude);
         var pointA = new google.maps.LatLng(userLat, userLon),
             pointB = new google.maps.LatLng(selected.latitude, selected.longitude),
             myOptions = {
@@ -251,6 +252,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
         destination: pointB,
         travelMode: google.maps.TravelMode.DRIVING
     }, function(response, status) {
+        console.log("google map result");
+        console.log(response);
         $("#duration_status").html(response.routes[0].legs[0].duration.text);
         $("#distance_status").html(response.routes[0].legs[0].distance.text);
         if (status == google.maps.DirectionsStatus.OK) {
@@ -303,13 +306,16 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
     function displayReview(indexOfRestaurant){
         var location_id, review_num, rating;
         /* retrieving the location id, number of reviews and rating*/
-        var selected=result[indexOfRestaurant];
+        selected=result[indexOfRestaurant];
         location_id=selected.location_id;
         review_num=selected.num_reviews;
         console.log("location_id: "+location_id);
         console.log("review num: "+review_num);
-       
+       retrieveReviews(location_id,review_num);
+    }
      
+    function retrieveReviews(location_id, review_num){
+        $("#review_container").empty();
         /* retrieving the reviews*/
         var queryUrl="https://tripadvisor1.p.rapidapi.com/reviews/list?limit="+review_num+"&currency=USD&lang=en_US&location_id="+location_id;
         $.ajax(getAjaxSetting(queryUrl)).done(function (response) {
@@ -325,11 +331,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
                 var text=$("<div>").attr("class","review_text").text(response[i].text);
                 $("#review_container").append($("<div>").attr("class","each_review").append(date,title,text));
             }
-            
-
         });
-        
-
     }
 
 
