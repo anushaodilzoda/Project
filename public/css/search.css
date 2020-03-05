@@ -421,7 +421,15 @@ input#signin_submit{
 #search_keyword{
     margin-bottom: 50px;
     margin-top: 50px;
-    margin-left: 40%;
+    margin-left: 35%;
     height: 40px;
     border-radius: 50px !important;
+}
+
+#place_search_btn{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    height: 40px;
+    width: 100px;
 }
