@@ -22,7 +22,6 @@ function displayPlacesResult(htmlDivId,result){
     }else{
         for(i in result){
             if(!result[i].result_object.photo){continue;}
-            console.log("====>img: "+result[i].result_object.photo.images.original.url);
             var row=$("<div>").attr("class","row container_div shadow rounded").attr("id",i),
                 col1=$("<div>").attr("class","col-md-7 col1"),
                 col2=$("<div>").attr("class","row col-md-5 tool_row"),
@@ -30,7 +29,15 @@ function displayPlacesResult(htmlDivId,result){
                 col22=$("<div>").attr("class","col-md-3"),
                 col23=$("<div>").attr("class","col-md-3");
 
-            var div1= $("<h4>").attr("class","result").text(result[i].result_object.name),
+
+            var div1=$("<a>")
+            .attr("class","result result_name")
+            .attr("href","#")
+            .attr("value",result[i].result_object.photo.images.original.url)
+            .attr("data-toggle","modal")
+            .attr("data-target","#modal_3")
+            .text(result[i].result_object.name);
+
                  span=createStarRating(result[i].result_object.rating),
                 div2= $("<div>").attr("class","result").text("Address: "+result[i].result_object.address)
                 
@@ -90,3 +97,13 @@ $(".quickSearch").on("click", function(){
     $("#loading").show();
     searchPlaces(value);
 });
+
+$("#places_result_container").on("click",".result_name",function(){
+    event.preventDefault();
+    console.log("name was clicked");
+    var value=$(this).attr("value");
+    console.log("image src: "+value);
+    $("#image_in_modal3").attr("src",value);
+});
+
+
