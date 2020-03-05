@@ -21,6 +21,8 @@ function displayPlacesResult(htmlDivId,result){
         el.text("No matching result");
     }else{
         for(i in result){
+            if(!result[i].result_object.photo){continue;}
+            console.log("====>img: "+result[i].result_object.photo.images.original.url);
             var row=$("<div>").attr("class","row container_div shadow rounded").attr("id",i),
                 col1=$("<div>").attr("class","col-md-7 col1"),
                 col2=$("<div>").attr("class","row col-md-5 tool_row"),
@@ -85,5 +87,6 @@ $(".quickSearch").on("click", function(){
     event.preventDefault();
     var value=$(this).html();
     console.log("val: "+value);
+    $("#loading").show();
     searchPlaces(value);
 });

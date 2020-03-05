@@ -170,8 +170,8 @@ input[type=submit]:active {
 
 #floater:hover,
 #floater:active {
-    border: 1px solid #cf6d17; 
      font-weight: 1000;
+     opacity: 0.7;
 }
     #floater {
     margin-right: 50px;
