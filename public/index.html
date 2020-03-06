@@ -146,8 +146,10 @@
                                     <label for="email">Password</label>
                                 </div>
                                 <div class="col-md-6">
-                                <input type="text"  name="password" class="form-control" id="signup_password" placeholder="Enter your password" required>
-                            </div>
+                                  <input onkeyup="validate();" maxlength="8" type="password" name="password" class="form-control" id="signup_password" placeholder="Enter your password" required>
+                              </div>
+                              <div id="validation-txt">
+                              </div>
                         </div> 
  
                        
@@ -552,6 +554,32 @@
                 </p>
             </div>
         </footer>
+         <script type="text/javascript">
+          function validate() {
+           var validationField = document.getElementById('validation-txt');
+           var password = document.getElementById('signup_password');
+           var content = password.value;
+           var errors = [];
+           console.log(content);
+           if (content.length <
+            8) {
+            errors.push("Your password must be at least 8 characters");
+           }
+           if (content.search(/[a-z]/i) < 0) {
+            errors.push("Your password must contain at least one letter.");
+           }
+           if (content.search(/[0-9]/i) < 0) {
+            errors.push(
+             "Your password must contain at least one digit.");
+           }
+           if (errors.length > 0) {
+            validationField.innerHTML = errors.join('');
+            return false;
+           }
+           validationField.innerHTML = errors.join('');
+           return true;
+          }
+          </script>
         <script src="https://smtpjs.com/v3/smtp.js"></script>
         <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
         <script src="https://code.jquery.com/jquery.js"></script>
