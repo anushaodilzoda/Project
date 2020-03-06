@@ -65,6 +65,20 @@ app.post("/submit", function(req, res) {
   );
 });
 
+app.post("/comment", function(req, res) {
+  // When using the MySQL package, we'd use ?s in place of any values to be inserted, which are then swapped out with corresponding elements in the array
+  // This helps us avoid an exploit known as SQL injection which we'd be open to if we used string concatenation
+  // https://en.wikipedia.org/wiki/SQL_injection
+  connection.query(
+    `INSERT INTO website_reviews(review_author, review_content) VALUES( ? , ?)`, [req.body.name, req.body.comment],
+      function(err, result) {
+          if (err) throw err;
+
+          res.redirect("/");
+      }
+  );
+});
+
 app.listen(PORT, function() {
   console.log("Server listening on: http://localhost:" + PORT);
 });

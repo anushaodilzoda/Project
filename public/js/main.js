@@ -152,12 +152,27 @@ $("#add_comment_btn").on("click",function(){
 
 
 $("#save_comment_btn").on("click", function(){
-    event.preventDefault();
-    var name=$("#comment_name").val();
-    var comment=$("#comment_message").val();
-    localStorage.setItem("comment_"+name, comment);
-    submitNewComment(name,comment);
 
+  event.preventDefault();
+  var name = $("#comment_name").val();
+  var comment = $("#comment_message").val();
+  localStorage.setItem("comment_" + name, comment);
+  submitNewComment(name, comment);
+  var obj = {
+      name: $("#comment_name").val(),
+      comment: $("#comment_message").val()
+  };
+  localStorage.setItem("member_" + obj.email, JSON.stringify(obj));
+
+  // Send the POST request.
+  $.ajax("/comment", {
+      type: "POST",
+      data: obj
+  }).then(function() {
+      console.log("user comment");
+      // Reload the page to get the updated list
+      //ocation.reload();
+  });
 })
 
 $("#signout_button").on("click", function(){
