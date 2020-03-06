@@ -114,6 +114,14 @@ $("#email_send_btn").on("click",function(){
     }
 })
 
+$("#result_container").on("click",".result_name",function(){
+    event.preventDefault();
+    console.log("name was clicked");
+    var value=$(this).attr("value");
+    console.log("image src: "+value);
+    $("#image_in_modal3").attr("src",value);
+});
+
 $(window).scroll(function() {
     var winScrollTop = $(window).scrollTop();
     var winHeight = $(window).height();
