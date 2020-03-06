@@ -1,5 +1,7 @@
 var express = require("express");
 const path=require("path");
+var connection = require("./config/connection");
+
 
 
 var app = express();
@@ -45,6 +47,23 @@ app.get("/places", function(req, res) {
 //     })
 //   });
 
+app.post("/submit", function(req, res) {
+  connection.query(
+      `INSERT INTO users(user_name, user_email, user_password, user_city, user_state, user_preferances) VALUES( ? , ? , ? , ? , ?, ?)`, [
+          req.body.name,
+          req.body.email,
+          req.body.password,
+          req.body.city,
+          req.body.state,
+          req.body.fav_food
+      ],
+      function(err, result) {
+          if (err) throw err;
+
+          res.redirect("/");
+      }
+  );
+});
 
 app.listen(PORT, function() {
   console.log("Server listening on: http://localhost:" + PORT);
