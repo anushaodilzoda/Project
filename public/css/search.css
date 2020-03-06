@@ -447,7 +447,16 @@ input#signin_submit{
 }
 
 .q_review{
-    
+    font-size: 17px;
+    font-style: italic;
+    color: #6c68af;
+}
+
+.container_div .col1 .result_name{
+    font-size: 30px;
+    font-weight: 400;
+    border-bottom: none;
+    padding-left: 0px !important;
 }
 
 

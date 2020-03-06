@@ -114,12 +114,31 @@ $("#email_send_btn").on("click",function(){
     }
 })
 
+   
+function getImageSrc(location_id,keyWord){
+    var queryUrl="https://tripadvisor1.p.rapidapi.com/locations/search?location_id="+location_id+"&limit=30&sort=relevance&offset=0&lang=en_US&currency=USD&units=km&query="+keyWord;
+    $.ajax(getAjaxSetting(queryUrl)).done(function (response) {
+       console.log(response);
+       var src="#";
+       try {
+          src= response.data[0].result_object.photo.images.original.url;
+        }
+        catch(err) {
+            src= response.data[1].result_object.photo.images.original.url;
+        }
+        $("#image_in_modal3").attr("src",src);
+    });
+}
+
+
 $("#result_container").on("click",".result_name",function(){
     event.preventDefault();
+    $("#image_in_modal3").attr("src","assets/images/loading.gif");
     console.log("name was clicked");
-    var value=$(this).attr("value");
-    console.log("image src: "+value);
-    $("#image_in_modal3").attr("src",value);
+    var indexOfRestaurant=$(this).parent().parent().attr("id");
+    console.log("index: "+indexOfRestaurant);
+    console.log(result[indexOfRestaurant]);
+    getImageSrc(result[indexOfRestaurant].location_id,result[indexOfRestaurant].name);
 });
 
 $(window).scroll(function() {

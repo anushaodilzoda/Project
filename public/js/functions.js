@@ -131,22 +131,6 @@ function getUserLocation(){
     }
 
 } //filterResponse function end
-   
-function getImageSrc(location_id,keyWord){
-    var queryUrl="https://tripadvisor1.p.rapidapi.com/locations/search?location_id="+location_id+"&limit=30&sort=relevance&offset=0&lang=en_US&currency=USD&units=km&query="+keyWord;
-    $.ajax(getAjaxSetting(queryUrl)).done(function (response) {
-       console.log(response);
-       var src="#";
-       try {
-          src= response.data[0].result_object.photo.images.original.url;
-          console.log("image found");
-          return src;
-        }
-        catch(err) {
-          console.log("no image found");
-        }
-    });
-}
 
 function displayResult(htmlDivId,result){
     $("#loading").hide();

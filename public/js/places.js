@@ -41,8 +41,10 @@ function displayPlacesResult(htmlDivId,res){
 
                  span=createStarRating(res[i].result_object.rating),
                 div2=$("<div>").attr("class","result").text("Type: "+res[i].result_object.category.name);
-                div3=$("<div>").attr("class","result q_review").text("Review: "+res[i].review_snippet.snippet);
-                div4= $("<div>").attr("class","result").text("Address: "+res[i].result_object.address);
+                div3= $("<div>").attr("class","result").text("Address: "+res[i].result_object.address);
+                div4= $("<div>").attr("class","result").text("Customer says:");
+                div5=$("<div>").attr("class","result q_review").text("-- "+res[i].review_snippet.snippet);
+                
                 
 
             var img0=$("<img>").attr("src","assets/images/reviews.png").attr("class","reviewsImg shadow mb-5 bg-white rounded");
@@ -70,7 +72,7 @@ function displayPlacesResult(htmlDivId,res){
                 .text("Share");
 
 
-            col1.append(div1,span,div2,div3,div4);
+            col1.append(div1,span,div2,div3,div4,div5);
             col21.append(img0,btn0);
             col22.append(img1,btn1);
             col23.append(img2,btn2);
