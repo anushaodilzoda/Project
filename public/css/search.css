@@ -347,13 +347,13 @@ h4#displayName{
 .main-nav {
     float: right;
     list-style: none;
-    margin-top: -60px;
+    margin-top: 30px;
     margin-right: 150px;
 }
 
 .dropdown{
     float: right;
-    margin-top: -20px;
+    margin-top: 70px;
     margin-right: 100px; 
     color:#e66f07;
 }
