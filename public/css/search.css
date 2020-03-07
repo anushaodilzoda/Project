@@ -502,6 +502,29 @@ a:link.heart_sign, a:visited.heart_sign{
     border-bottom: none !important;
 }
 
+.header-nav{
+    color:black;
+    font-size:20px;
+    font-weight:400;
+    position:absolute;
+    transform:translatey(10px);
+    border-bottom:none !important;
+
+}
+
+a:link.header_links, a:visited.header_links{
+    border-bottom:none !important;
+}
+
+.container{
+    margin-top: 100px;
+}
+
+.delete_btn{
+    margin-top: 30px;
+    margin-left: 250px;
+}
+
 
 
 

@@ -14,18 +14,20 @@
     </head>
     <body>
         <header>
-            <nav>
+            <nav class="header-nav">
                 <div class="row">
                     <img src="resources/img/ts logo.jpg" alt="toxic sushi logo" class="logo rounded-circle">
-                    
+                    <a href="index.html" id="home_link" class="header_links">Home</a>
+                    <a href="search" id="search_restaurants_link" class="header_links">Search Restaurants</a>
+                    <a href="places" id="search_fun_places_link" class="header_links">Search Fun Places</a>
+                    <a href="view_favorites" id="my_favorites_link" class="header_links">My Favorites</a>
                 </div>
             </nav>
 
             <ul class="main-nav">
                <h4 id="displayName"></h4>
             </ul>
-          
-
+        
 
 <div class="dropdown">
                       <div id="sidebar">
@@ -35,9 +37,9 @@
                               <span></span>
                           </div>
                           <ul >
-                              <li id="subscribe-btn" data-toggle="modal" data-target="#modal_4"><a href="#">Sign up</a></li>
-                              <li  id="subscribe-btn" data-toggle="modal" data-target="#modal_5"><a href="#">Sign in</a></li>
-                              <li id="signout_button"><a href="#">Sign out</a></li>
+                              <li id="subscribe-btn" data-toggle="modal" data-target="#modal_4">Sign up</li>
+                              <li  id="subscribe-btn" data-toggle="modal" data-target="#modal_5">Sign in</li>
+                              <li id="signout_button">Sign out</li>
                           </ul>
 
                       </div>
