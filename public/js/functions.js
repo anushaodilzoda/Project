@@ -183,7 +183,7 @@ function displayResult(htmlDivId,result){
                 .attr("href",result[i].website)
                 .attr("class","result website")
                 .attr("target","_blank")
-                .text(result[i].website);
+                .text(result[i].website).text("View our site");
                 
 
             var img0=$("<img>").attr("src","assets/images/reviews.png").attr("class","reviewsImg shadow mb-5 bg-white rounded");
