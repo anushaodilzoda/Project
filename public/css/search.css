@@ -342,17 +342,18 @@ h4#displayName{
     border-bottom: 1px solid   #e66f07;
     color:  #e66f07;
     margin-left: 40px;
+
 }
 .main-nav {
     float: right;
     list-style: none;
     margin-top: -60px;
-    margin-right: 100px;
+    margin-right: 150px;
 }
 
 .dropdown{
     float: right;
-    margin-top: -60px;
+    margin-top: -20px;
     margin-right: 100px; 
     color:#e66f07;
 }
@@ -500,6 +501,8 @@ input#signin_submit{
 a:link.heart_sign, a:visited.heart_sign{
     border-bottom: none !important;
 }
+
+
 
 
 
