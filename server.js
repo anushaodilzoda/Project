@@ -26,7 +26,7 @@ app.get("/places", function(req, res) {
    res.sendFile(path.join(__dirname, "public/places.html"));
 });
 
-app.get("/view_favoites", function(req, res) {
+app.get("/view_favorites", function(req, res) {
   // var signedInUser = null;
   // if (typeof localStorage === "undefined" || localStorage === null) {
   //   var LocalStorage = require('node-localstorage').LocalStorage;
@@ -74,11 +74,12 @@ app.post("/addFav", function(req, res) {
       "SELECT user_favorites FROM users WHERE user_email='"+user+"'",
 
         function(err, result) {
+          var extract=req.body.data[0].name+":"+req.body.data[0].address+":"+req.body.data[0].latitude+":"+req.body.data[0].longitude+";;"
             if (err) throw err;
             if(result[0].user_favorites==null || result=="null"){
-              str=req.body.data[0].location_id+":"+req.body.data[0].name+",";
+              str=extract;
             }else{
-              str=result[0].user_favorites+req.body.data[0].location_id+":"+req.body.data[0].name+",";
+              str=result[0].user_favorites+extract;
             }
             console.log("obj to insert: "+str);
             connection.query(
@@ -115,6 +116,36 @@ app.post("/pullDb", function(req, res){
       }
   );
 });
+
+
+
+app.delete("/deleteFav", function(req, res) {
+   var user= JSON.stringify(req.body.data[0]);
+  var deleteData= JSON.stringify(req.body.data[1]);
+    user=user.substring(1,user.length-1);
+    deleteData=deleteData.substring(1,deleteData.length-1);
+    connection.query(
+      "SELECT user_favorites FROM users WHERE user_email='"+user+"'",
+        function(err, result) {
+          var resultStr=result[0].user_favorites;
+          resultStr=resultStr.substring(0,resultStr.length-2);
+          var arr=resultStr.split(";;");
+          var newStr="";
+          for(var i=0; i<arr.length; i++){
+            if(arr[i].includes(deleteData)) continue;
+            newStr+=arr[i]+";;";
+          }
+
+          connection.query(
+            "UPDATE users SET user_favorites='"+newStr+"' WHERE user_email='"+user+"'",
+            function(err, result) {
+                if (err) throw err;
+                res.redirect("/view_favorites");
+            }
+        ); 
+        }
+  );
+   });
 
 
 

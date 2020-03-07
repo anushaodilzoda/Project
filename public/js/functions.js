@@ -414,6 +414,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
         }
     }
 
+    
+
   
 
 

@@ -7,7 +7,7 @@ if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection({
         host: "localhost",
         user: "root",
-        password: "Anushaj0n",
+        password: "testtest",
         database: "toxicsushi"
     });
 }
