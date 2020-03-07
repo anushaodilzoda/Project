@@ -1,4 +1,5 @@
 //  searchPlaces("fun");
+$("#loading").hide();
 
 
 function searchPlaces(keyWord){
