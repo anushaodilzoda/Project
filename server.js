@@ -3,7 +3,6 @@ const path=require("path");
 var connection = require("./config/connection");
 
 
-
 var app = express();
 
 var PORT = process.env.PORT || 8080;
@@ -13,6 +12,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 
 
 app.get("/", function(req, res) {
@@ -28,25 +28,6 @@ app.get("/places", function(req, res) {
 });
 
 
-// app.post("/api/burgers", function(req, res) {
-//     orm.insert("burgers", "name", req.body.name, function(data){
-//         res.json({ id: data.insertId });
-//     })
-// });
-
-
-// app.put("/api/burgers/:id", function(req, res) {
-//     orm.update("burgers", "deleted","y", req.params.id, function(data){
-//         res.status(200).end();
-//     })
-//   });
-
-//   app.delete("/api/burgers/:id", function(req, res) {
-//     orm.delete("burgers", "id", req.params.id, function(data){
-//         res.status(200).end();
-//     })
-//   });
-
 app.post("/submit", function(req, res) {
   connection.query(
       `INSERT INTO users(user_name, user_email, user_password, user_city, user_state, user_preferances) VALUES( ? , ? , ? , ? , ?, ?)`, [
@@ -57,12 +38,43 @@ app.post("/submit", function(req, res) {
           req.body.state,
           req.body.fav_food
       ],
+      
       function(err, result) {
           if (err) throw err;
 
           res.redirect("/");
       }
   );
+});
+
+
+
+app.post("/addFav", function(req, res) {
+      var str="";
+
+      var user=JSON.stringify(req.body.data[1].user);
+
+      user=user.substring(1,user.length-1);
+    
+      connection.query(
+      "SELECT user_favorites FROM users WHERE user_email='"+user+"'",
+
+        function(err, result) {
+            if (err) throw err;
+            if(result[0].user_favorites==null || result=="null"){
+              str=req.body.data[0].location_id+":"+req.body.data[0].name+",";
+            }else{
+              str=result[0].user_favorites+req.body.data[0].location_id+":"+req.body.data[0].name+",";
+            }
+            console.log("obj to insert: "+str);
+            connection.query(
+              "UPDATE users SET user_favorites='"+str+"' WHERE user_email='"+user+"'",
+              function(err, result) {
+                  if (err) throw err;
+              }
+          );       
+        }
+    );  
 });
 
 app.post("/comment", function(req, res) {
@@ -78,6 +90,8 @@ app.post("/comment", function(req, res) {
       }
   );
 });
+
+
 
 app.listen(PORT, function() {
   console.log("Server listening on: http://localhost:" + PORT);

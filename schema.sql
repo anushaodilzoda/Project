@@ -3,6 +3,8 @@ DROP DATABASE IF EXISTS toxicsushi;
 -- Creates the "todolist" database --
 CREATE DATABASE toxicsushi;
 
+USE toxicsushi;
+
 -- Create table for reviews, add ability to leave a score for stars our of 5 --
 CREATE TABLE website_reviews (
   id int NOT NULL AUTO_INCREMENT,

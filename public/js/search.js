@@ -82,6 +82,29 @@ $("#result_container").on("click",".share_btn",function(){
 });
 
 
+$("#result_container").on("click",".fa-heart",function(){
+    event.preventDefault();
+    var indexOfRestaurant=$(this).parent().parent().attr("id");
+    console.log("clicked: "+indexOfRestaurant);
+    if(localStorage.getItem("Signed in user: ")!=null){
+        $(this).attr("class", "fa fa-heart");
+        var arr=[];
+        var obj= result[indexOfRestaurant];
+        arr.push(obj);
+        arr.push({user: localStorage.getItem("Signed in user: ")});
+       
+        console.log(arr);
+        $.ajax("/addFav", {
+            type: "POST",
+            data: {data:arr}
+        }).then(function() {
+            console.log("Added to favorites");
+        });
+     }else{
+         alert("Please sign in");
+     }
+});
+
 
 $("#email_recievers").on("change",function(){
     if($("#email_recievers").val()=="Custom Email Address"){

@@ -1,5 +1,6 @@
 //  searchPlaces("fun");
 
+
 function searchPlaces(keyWord){
   var location_id=localStorage.getItem("location_id");
     var queryUrl="https://tripadvisor1.p.rapidapi.com/locations/search?location_id="+location_id+"&limit=30&sort=relevance&offset=0&lang=en_US&currency=USD&units=km&query="+keyWord;
@@ -26,10 +27,12 @@ function displayPlacesResult(htmlDivId,res){
             var row=$("<div>").attr("class","row container_div shadow rounded").attr("id",i),
                 col1=$("<div>").attr("class","col-md-7 col1"),
                 col2=$("<div>").attr("class","row col-md-5 tool_row"),
+                col3=$("<a>").attr("href","#").attr("class", "heart_sign"),
+                heart_img=$("<i>").attr("class","far fa-heart"),
                 col21=$("<div>").attr("class","col-md-3"),
                 col22=$("<div>").attr("class","col-md-3"),
                 col23=$("<div>").attr("class","col-md-3");
-
+                
 
             var div1=$("<a>")
             .attr("class","result result_name")
@@ -39,7 +42,7 @@ function displayPlacesResult(htmlDivId,res){
             .attr("data-target","#modal_3")
             .text(res[i].result_object.name);
 
-                 span=createStarRating(res[i].result_object.rating),
+                span=createStarRating(res[i].result_object.rating),
                 div2=$("<div>").attr("class","result").text("Type: "+res[i].result_object.category.name);
                 div3= $("<div>").attr("class","result").text("Address: "+res[i].result_object.address);
                 div4= $("<div>").attr("class","result").text("Customer says:");
@@ -76,7 +79,8 @@ function displayPlacesResult(htmlDivId,res){
             col21.append(img0,btn0);
             col22.append(img1,btn1);
             col23.append(img2,btn2);
-            row.append(col1,col2);
+            col3.append(heart_img);
+            row.append(col1,col2,col3);
             col2.append(col21,col22,col23);
             el.append(row);
         
@@ -131,6 +135,29 @@ $("#places_result_container").on("click",".share_btn",function(){
     console.log("clicked: "+indexOfRestaurant);
     autofill(result[indexOfRestaurant].result_object);
 
+});
+
+$("#places_result_container").on("click",".fa-heart",function(){
+    event.preventDefault();
+    var indexOfRestaurant=$(this).parent().parent().attr("id");
+    console.log("clicked: "+indexOfRestaurant);
+    if(localStorage.getItem("Signed in user: ")!=null){
+        $(this).attr("class", "fa fa-heart");
+        var arr=[];
+        var obj= result[indexOfRestaurant].result_object;
+        arr.push(obj);
+        arr.push({user: localStorage.getItem("Signed in user: ")});
+       
+        console.log(arr);
+        $.ajax("/addFav", {
+            type: "POST",
+            data: {data:arr}
+        }).then(function() {
+            console.log("Added to favorites");
+        });
+     }else{
+         alert("Please sign in");
+     }
 });
 
 

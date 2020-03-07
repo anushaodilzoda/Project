@@ -6,6 +6,8 @@ var userLon="undefined";
 var userLat="undefined";
 var result="undefined";
 var selected="undefined";
+var favList=[];
+
 //localStorage.clear();
 
 /* * * * * * * Functions * * * * * * */
@@ -158,6 +160,8 @@ function displayResult(htmlDivId,result){
             var row=$("<div>").attr("class","row container_div shadow rounded").attr("id",i),
                 col1=$("<div>").attr("class","col-md-7 col1"),
                 col2=$("<div>").attr("class","row col-md-5 tool_row"),
+                col3=$("<a>").attr("href","#").attr("class", "heart_sign"),
+                heart_img=$("<i>").attr("class","far fa-heart"),
                 col21=$("<div>").attr("class","col-md-3"),
                 col22=$("<div>").attr("class","col-md-3"),
                 col23=$("<div>").attr("class","col-md-3");
@@ -211,7 +215,8 @@ function displayResult(htmlDivId,result){
             col21.append(img0,btn0);
             col22.append(img1,btn1);
             col23.append(img2,btn2);
-            row.append(col1,col2);
+            col3.append(heart_img);
+            row.append(col1,col2,col3);
             col2.append(col21,col22,col23);
             el.append(row);
         } 
@@ -408,3 +413,37 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
         return userObj.name;
         }
     }
+
+    function saveFavToDb(obj){
+        var newArr=[];
+        var currentUser=localStorage.getItem("Signed in user: ");
+            orm.selectWithCondition("user_favorites","users"," user_email='"+currentUser+"'",function(data){
+                console.log(data);
+                if(data!=null){
+                    console.log("existing fav found");
+                    newArr=JSON.parse(data).push(obj);
+                }else{
+                    newArr.push(obj);
+                    console.log("created new arr");
+                }
+                orm.update("users","user_favorites",JSON.stringify(newArr),"where user_email='"+currentUser+"'");
+            });
+       
+    }
+
+    function saveFavToLocalStorage(obj){
+        var newArr=[];
+           var data= localStorage.getItem("favorite_list");
+           console.log(data.length);
+                if(data!=null){
+                    console.log("existing fav found");
+                    newArr=data.push(obj);
+                }else{
+                    newArr.push(obj);
+                    console.log("created new arr");
+                }
+                localStorage.setItem("favorite_list",newArr);
+
+    }
+
+
