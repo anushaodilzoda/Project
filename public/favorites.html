@@ -10,173 +10,188 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/search.css">
   </head>
-<body>
-    <div id="search_body">
-        <div class="row">
-            <a id="logo" href="index.html"><img id="logo_img" src="resources/img/ts logo.jpg" alt="omnifood logo" class="logo rounded-circle"></a>
-        </div>
-    <ul class="main-nav-search">
-       <h4 id="displayName"></h4>
-    </ul>
-
-    <div class="container shadow">
-        <h2 id="search_box_label">My Favorites</h2>
-             <div id="map_section" class="row">
-
-               </div>
-         <div class="row">
-            <div id="loading">
-                <div class="spinner-grow text-light" role="status">
-                  <span class="sr-only">Loading...</span>
-                </div>
-                <div class="spinner-grow text-light" role="status">
-                  <span class="sr-only">Loading...</span>
-                </div>
-                <div class="spinner-grow text-light" role="status">
-                  <span class="sr-only">Loading...</span>
-                </div>
-            </div>
-        </div>
-        <div id="fav_result_container">
-            
-        </div>
-
-                    <!--  image modal -->
-                    <div id="modal_3" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="status">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                            <div id="modal_3_content">
-                               <img id="image_in_modal3">
-                            </div>                
-                        </div>
-                        </div>
-                    </div>
-                                                              <!--  reviews modal-->
-
-  <div class="modal fade bd-example-modal-lg" id="modal_0" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="review_modal_title"></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div id="review_container" class="modal-body">
+  <body>
+    <nav class="header-nav">
+      <div class="row">
+          <img src="resources/img/ts logo.jpg" alt="toxic sushi logo" class="logo rounded-circle">
+          <a href="index.html" id="home_link" class="header_links">Home</a>
+          <a href="search" id="search_restaurants_link" class="header_links">Search Restaurants</a>
+          <a href="places" id="search_fun_places_link" class="header_links">Search Fun Places</a>
+          <a href="view_favorites" id="my_favorites_link" class="header_links">My Favorites</a>
+      </div>
+  </nav>
+    
+      <div id="search_body2">
+      <ul class="main-nav-search">
+         <h4 id="displayName"></h4>
+      </ul>
+  
+      <div class="container shadow">
+               <div id="map_section" class="row">
+               <!-- <a class="btn btn-full quickSearch" href="#">Coffee Shop</a>
+                <a class="btn btn-full quickSearch" href="#">Shopping</a>
+                <a class="btn btn-full quickSearch" href="#">Playground</a> 
+                 <a class="btn btn-full quickSearch" href="#">Cinema</a>
+                  <a class="btn btn-full quickSearch" href="#">Bar</a>
+                   <a class="btn btn-full quickSearch" href="#">Hotel</a>  -->
+                 </div>
+           <div class="row">
+             <!-- <input class="col-sm-3" class="form-control" id="search_keyword" placeholder="Search by Keyword">
+             <a class="btn btn-ghost" id="place_search_btn" href="">Search</a> -->
+  
+              <div id="loading">
+                  <div class="spinner-grow text-light" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <div class="spinner-grow text-light" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <div class="spinner-grow text-light" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+              </div>
+          </div>
+          <div id="fav_result_container">
+              
+          </div>
+  
+                      <!--  image modal -->
+                      <div id="modal_3" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                  <div class="status">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                  </button>
+                                  </div>
+                              <div id="modal_3_content">
+                                 <img id="image_in_modal3">
+                              </div>                
+                          </div>
+                          </div>
+                      </div>
+                                                                <!--  reviews modal-->
+  
+    <div class="modal fade bd-example-modal-lg" id="modal_0" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="review_modal_title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div id="review_container" class="modal-body">
+              </div>
             </div>
           </div>
         </div>
-      </div>
-  
-                              <!--  direction modal-->
-          <div id="modal_1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    
+                                <!--  direction modal-->
+            <div id="modal_1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header status">
+                    <img id="car_img" src="assets/images/car.png">
+                    <span id="duration_status"></span>
+                    <span id="distance_status"></span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                  <div id="map"></div>
+                </div>
+              </div>
+            </div>
+           
+                                <!--  share modal -->
+            <div id="modal_2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                  <div class="modal-header status">
-                  <img id="car_img" src="assets/images/car.png">
-                  <span id="duration_status"></span>
-                  <span id="distance_status"></span>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-                <div id="map"></div>
-              </div>
-            </div>
-          </div>
-         
-                              <!--  share modal -->
-          <div id="modal_2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                  <div class="status">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-                  </div>
-                <div  id="modal_2_content">
-                  <div class="row" id="to_row">
-                  <div class="col-md-6">
-                   <label for="validationTooltip02">To:</label>
-                  <select id="email_recievers" class="form-control">
-                    <option selected value="Community">Community</option>
-                    <option>Custom Email Address</option>
-                    </select>
-                  </div>
-                  <div class="col-md-6" id="custom_email_div">
-                    <input class="form-control" id="custom_email" type="text" placeholder="Type the email address">
-                  </div>
-                </div>
-                  <div class="row">
-                    <label for="validationTooltip02">Subject:</label>
-                    <input type="text" class="form-control" id="subject" value="I would like to share my great experience.">
-                  </div>
-                  <div class="row">
-                    <label for="validationTooltip02">Message:</label>
-                    <textarea id="message" class="form-control"></textarea>
-                  </div>
-                    <a href="#" id="email_send_btn" class="btn btn-full" data-toggle="modal" data-target="#modal_3" data-dismiss="modal">Send</a>
-                  </div>                
-            </div>
-          </div>
-        </div>
-  
-        
-                  <!--  sent modal -->
-                  <div id="modal_3" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                          <h5 id="sent">Sent</h5>
-                      </div>
+                    <div class="status">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                  <div  id="modal_2_content">
+                    <div class="row" id="to_row">
+                    <div class="col-md-6">
+                     <label for="validationTooltip02">To:</label>
+                    <select id="email_recievers" class="form-control">
+                      <option selected value="Community">Community</option>
+                      <option>Custom Email Address</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6" id="custom_email_div">
+                      <input class="form-control" id="custom_email" type="text" placeholder="Type the email address">
                     </div>
                   </div>
-
-</div>
-    <footer>
-        <div class="row">
-            <div class="col span-1-of-2">
-                <ul class="footer-nav">
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">iOS App</a></li>
-                        <li><a href="#">Android App</a></li>
-                    </ul>
-                </div>
-                <div class="col span-1-of-2">
-                    <ul class="social-links">
-
-                    <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                    <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                    <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-                    <li><a href="#"><i class="ion-social-instagram"></i></a></li>
-                   
-                    </ul>
-                
+                    <div class="row">
+                      <label for="validationTooltip02">Subject:</label>
+                      <input type="text" class="form-control" id="subject" value="I would like to share my great experience.">
+                    </div>
+                    <div class="row">
+                      <label for="validationTooltip02">Message:</label>
+                      <textarea id="message" class="form-control"></textarea>
+                    </div>
+                      <a href="#" id="email_send_btn" class="btn btn-full" data-toggle="modal" data-target="#modal_3" data-dismiss="modal">Send</a>
+                    </div>                
+              </div>
             </div>
-        </div>
-        <div class="row">
-            <p>
-                Copyright &copy; 2020 by Toxic Sushi. All rights reserved.
-            </p>
-        </div>
-    </footer>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous"></script>
-    <script src="js/favorite.js"></script>
-    <script src="js/places.js"></script>
-    <script src="js/functions.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYcGgehhS1tJ1xhTwxY_2v8UOJNjKWzKM"></script>
-	</body>
-</html>
+          </div>
+    
+          
+                    <!--  sent modal -->
+                    <div id="modal_3" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <h5 id="sent">Sent</h5>
+                        </div>
+                      </div>
+                    </div>
+  
+  </div>
+      <footer>
+          <div class="row">
+              <div class="col span-1-of-2">
+                  <ul class="footer-nav">
+                          <li><a href="#">About us</a></li>
+                          <li><a href="#">Blog</a></li>
+                          <li><a href="#">Press</a></li>
+                          <li><a href="#">iOS App</a></li>
+                          <li><a href="#">Android App</a></li>
+                      </ul>
+                  </div>
+                  <div class="col span-1-of-2">
+                      <ul class="social-links">
+  
+                      <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                      <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                      <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                      <li><a href="#"><i class="ion-social-instagram"></i></a></li>
+                     
+                      </ul>
+                  
+              </div>
+          </div>
+          <div class="row">
+              <p>
+                  Copyright &copy; 2020 by Toxic Sushi. All rights reserved.
+              </p>
+          </div>
+      </footer>
+      <script src="https://smtpjs.com/v3/smtp.js"></script>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+      <script src="js/favorite.js"></script>
+      <script src="js/places.js"></script>
+      <script src="js/functions.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYcGgehhS1tJ1xhTwxY_2v8UOJNjKWzKM"></script>
+    </body>
+  </html>
+  
