@@ -88,17 +88,29 @@ $("#checkAll").click(function(){
     })
 });
 
-$("#subscribeSubmitBtn").on("click", function(){
-    event.preventDefault();
-    var obj={
-        name: $("#signup_name").val(),
-        email: $("#signup_email").val(),
-        password: $("#signup_password").val(),
-        address: $("#signup_city").val()+", "+$("#signup_state").val(),
-        fav_food: favFood,
-    };
-    localStorage.setItem("member_"+obj.email,JSON.stringify(obj));
-  })
+$("#subscribeSubmitBtn").on("click", function() {
+  event.preventDefault();
+  var obj = {
+      name: $("#signup_name").val(),
+      email: $("#signup_email").val(),
+      password: $("#signup_password").val(),
+      city: $("#signup_city").val(),
+      state: $("#signup_state").val(),
+      address: $("#signup_city").val() + ", " + $("#signup_state").val(),
+      fav_food: JSON.stringify(favFood)
+  };
+  localStorage.setItem("member_" + obj.email, JSON.stringify(obj));
+
+  // Send the POST request.
+  $.ajax("/submit", {
+      type: "POST",
+      data: obj
+  }).then(function() {
+      console.log("sign up user");
+      // Reload the page to get the updated list
+      //ocation.reload();
+  });
+});
 
 
 $("#signin_submit").on("click", function(){
@@ -140,12 +152,27 @@ $("#add_comment_btn").on("click",function(){
 
 
 $("#save_comment_btn").on("click", function(){
-    event.preventDefault();
-    var name=$("#comment_name").val();
-    var comment=$("#comment_message").val();
-    localStorage.setItem("comment_"+name, comment);
-    submitNewComment(name,comment);
 
+  event.preventDefault();
+  var name = $("#comment_name").val();
+  var comment = $("#comment_message").val();
+  localStorage.setItem("comment_" + name, comment);
+  submitNewComment(name, comment);
+  var obj = {
+      name: $("#comment_name").val(),
+      comment: $("#comment_message").val()
+  };
+  localStorage.setItem("member_" + obj.email, JSON.stringify(obj));
+
+  // Send the POST request.
+  $.ajax("/comment", {
+      type: "POST",
+      data: obj
+  }).then(function() {
+      console.log("user comment");
+      // Reload the page to get the updated list
+      //ocation.reload();
+  });
 })
 
 $("#signout_button").on("click", function(){

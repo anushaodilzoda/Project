@@ -1,4 +1,4 @@
-
+//  searchPlaces("fun");
 
 function searchPlaces(keyWord){
   var location_id=localStorage.getItem("location_id");
@@ -8,7 +8,6 @@ function searchPlaces(keyWord){
         displayPlacesResult("places_result_container",response)
     });
 }
-
 
 function displayPlacesResult(htmlDivId,res){
     res=res.data;
@@ -41,7 +40,11 @@ function displayPlacesResult(htmlDivId,res){
             .text(res[i].result_object.name);
 
                  span=createStarRating(res[i].result_object.rating),
-                div2= $("<div>").attr("class","result").text("Address: "+res[i].result_object.address)
+                div2=$("<div>").attr("class","result").text("Type: "+res[i].result_object.category.name);
+                div3= $("<div>").attr("class","result").text("Address: "+res[i].result_object.address);
+                div4= $("<div>").attr("class","result").text("Customer says:");
+                div5=$("<div>").attr("class","result q_review").text("-- "+res[i].review_snippet.snippet);
+                
                 
 
             var img0=$("<img>").attr("src","assets/images/reviews.png").attr("class","reviewsImg shadow mb-5 bg-white rounded");
@@ -69,7 +72,7 @@ function displayPlacesResult(htmlDivId,res){
                 .text("Share");
 
 
-            col1.append(div1,span,div2);
+            col1.append(div1,span,div2,div3,div4,div5);
             col21.append(img0,btn0);
             col22.append(img1,btn1);
             col23.append(img2,btn2);
@@ -80,10 +83,6 @@ function displayPlacesResult(htmlDivId,res){
         }  
     }  
 }
-
-
-
-
 
 
 $("#place_search_btn").on("click",function(){
@@ -135,7 +134,6 @@ $("#places_result_container").on("click",".share_btn",function(){
 });
 
 
-
 $("#email_recievers").on("change",function(){
     if($("#email_recievers").val()=="Custom Email Address"){
         $("#custom_email").show();
@@ -159,11 +157,8 @@ $("#email_send_btn").on("click",function(){
             if(key.startsWith("member")){
              var email=JSON.parse(localStorage.getItem(key)).email;
                prepAndSendEmail(email,subject,message);
-            //WIP community email list as recievers
             }
-
         }
-
     }
 })
 

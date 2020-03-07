@@ -61,7 +61,7 @@ function getAjaxSetting(queryUrl){
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-            "x-rapidapi-key": "89f48f102dmsha286536059ab923p14d588jsn048cd5bbda16"
+            "x-rapidapi-key": "27228f3928mshecf3768460bfdd6p1a3d7fjsn04c99c07c026"
         }
     }
     return settings;
@@ -131,7 +131,6 @@ function getUserLocation(){
     }
 
 } //filterResponse function end
-   
 
 function displayResult(htmlDivId,result){
     $("#loading").hide();
@@ -155,6 +154,7 @@ function displayResult(htmlDivId,result){
             for(j in result[i].cuisine){
                 cuisinesStr= cuisinesStr+(result[i].cuisine[j].name)+",";
             }
+
             var row=$("<div>").attr("class","row container_div shadow rounded").attr("id",i),
                 col1=$("<div>").attr("class","col-md-7 col1"),
                 col2=$("<div>").attr("class","row col-md-5 tool_row"),
@@ -162,8 +162,14 @@ function displayResult(htmlDivId,result){
                 col22=$("<div>").attr("class","col-md-3"),
                 col23=$("<div>").attr("class","col-md-3");
 
-            var div1= $("<h4>").attr("class","result").text(result[i].name),
-                 span=createStarRating(result[i].rating),
+                var div1=$("<a>")
+                .attr("class","result result_name")
+                .attr("href","#")
+                .attr("data-toggle","modal")
+                .attr("data-target","#modal_3")
+                .text(result[i].name);
+
+                span=createStarRating(result[i].rating),
                 div2= $("<div>").attr("class","result").text("Address: "+result[i].address),
                 div3= $("<div>").attr("class","result").text("Cuisines: "+cuisinesStr),
                 div4= $("<div>").attr("class","result").text("Phone: "+result[i].phone),
@@ -208,10 +214,11 @@ function displayResult(htmlDivId,result){
             row.append(col1,col2);
             col2.append(col21,col22,col23);
             el.append(row);
-        
-        }  
+        } 
+    
     }  
 }
+
 
 
 var map;
