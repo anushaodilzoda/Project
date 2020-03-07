@@ -29,17 +29,34 @@
                <h4 id="displayName"></h4>
             </ul> -->
           
-                  <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+           
+                  <!-- <div class="dropdown"> -->
+                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Dropdown button
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                <li><a href="#" id="subscribe-btn" data-toggle="modal" data-target="#modal_4">Sign up</a></li> 
                                 <li><a href="#" id="subscribe-btn" data-toggle="modal" data-target="#modal_5">Sign in</a></li>
                                 <li><a href="#"  id="signout_button">Sign out</a></li>
-                        </div>
-                      </div>
+                        </div> -->
+                      <!-- </div> -->
 
+<div class="dropdown">
+                      <div id="sidebar">
+                          <div class="toggle-btn" onclick="toggleSidebar()">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                          </div>
+                          <ul >
+                              <li id="subscribe-btn" data-toggle="modal" data-target="#modal_4">Sign up</li>
+                              <li  id="subscribe-btn" data-toggle="modal" data-target="#modal_5">Sign in</li>
+                              <li id="signout_button">Sign out</li>
+                          </ul>
+
+                      </div>
+                    </div>
 
             <div class="hero-text-box">
                 <h1>Find the best <br> of what you're hungry for</h1>
@@ -552,6 +569,12 @@
                 </p>
             </div>
         </footer>
+      
+        <script>
+              function toggleSidebar(){
+            document.getElementById("sidebar").classList.toggle("active");
+        }
+        </script>
         <script src="https://smtpjs.com/v3/smtp.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
