@@ -414,36 +414,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
         }
     }
 
-    function saveFavToDb(obj){
-        var newArr=[];
-        var currentUser=localStorage.getItem("Signed in user: ");
-            orm.selectWithCondition("user_favorites","users"," user_email='"+currentUser+"'",function(data){
-                console.log(data);
-                if(data!=null){
-                    console.log("existing fav found");
-                    newArr=JSON.parse(data).push(obj);
-                }else{
-                    newArr.push(obj);
-                    console.log("created new arr");
-                }
-                orm.update("users","user_favorites",JSON.stringify(newArr),"where user_email='"+currentUser+"'");
-            });
-       
-    }
+  
 
-    function saveFavToLocalStorage(obj){
-        var newArr=[];
-           var data= localStorage.getItem("favorite_list");
-           console.log(data.length);
-                if(data!=null){
-                    console.log("existing fav found");
-                    newArr=data.push(obj);
-                }else{
-                    newArr.push(obj);
-                    console.log("created new arr");
-                }
-                localStorage.setItem("favorite_list",newArr);
-
-    }
 
 

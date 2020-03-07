@@ -105,6 +105,17 @@ app.post("/comment", function(req, res) {
   );
 });
 
+app.post("/pullDb", function(req, res){
+  var user= JSON.stringify(req.body.user);
+  user=user.substring(1,user.length-1);
+  connection.query(
+    "SELECT user_favorites FROM users WHERE user_email='"+user+"'",
+      function(err, result) {
+        res.send(result);
+      }
+  );
+});
+
 
 
 app.listen(PORT, function() {
