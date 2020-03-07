@@ -4,6 +4,7 @@ var connection = require("./config/connection");
 
 
 
+
 var app = express();
 
 var PORT = process.env.PORT || 8080;
@@ -25,6 +26,27 @@ app.get("/search", function(req, res) {
 
 app.get("/places", function(req, res) {
    res.sendFile(path.join(__dirname, "public/places.html"));
+});
+
+
+
+app.get("/view_favoites", function(req, res) {
+  // var signedInUser = null;
+  // if (typeof localStorage === "undefined" || localStorage === null) {
+  //   var LocalStorage = require('node-localstorage').LocalStorage;
+  //   localStorage = new LocalStorage('./scratch');
+  //   signedInUser = localStorage.getItem('Signed in user: ');
+  // }
+   
+
+ 
+//   console.log("local storage:: >>>>>>>>" + signedInUser);
+// if(signedInUser=== null){
+  res.sendFile(path.join(__dirname, "public/favorites.html"));
+// } else if(signedInUser=== null || signedInUser === "undefined") {
+//   // alert("Please sign in");
+//   console.log("Please sign in");
+// }
 });
 
 
