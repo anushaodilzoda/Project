@@ -114,7 +114,7 @@ $("#subscribeSubmitBtn").on("click", function() {
 
 
 $("#signin_submit").on("click", function(){
-    //event.preventDefault();
+    event.preventDefault();
     var enteredEmail=$("#signin_email").val();
     var enteredPassword=$("#signin_password").val();
    
