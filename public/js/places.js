@@ -1,9 +1,11 @@
 //  searchPlaces("fun");
 $("#loading").hide();
 
-
 function searchPlaces(keyWord){
-  var location_id=localStorage.getItem("location_id");
+    var location_id=localStorage.getItem("location_id");
+    if(location_id==null){
+        location_id=3687382;
+    }
     var queryUrl="https://tripadvisor1.p.rapidapi.com/locations/search?location_id="+location_id+"&limit=30&sort=relevance&offset=0&lang=en_US&currency=USD&units=km&query="+keyWord;
     $.ajax(getAjaxSetting(queryUrl)).done(function (response) {
         console.log(response);

@@ -22,15 +22,19 @@ function initSearchVars(){
 
 function initStoredSearch(){
     var obj=JSON.parse(localStorage.getItem("search_vars"));
-    type=obj.type;
-    name=obj.name;
-    distance=obj.distance;
-    searchArea=obj.searchArea;
-    zipCode=obj.zipCode;
-    rating=obj.rating;
-    setTimeout(function(){
-        performSearch("result_container",searchArea,zipCode,distance,type,name,rating);
-    }, 300);
+    if(obj==null){
+        $("#loading").hide();
+    }else{
+        type=obj.type;
+        name=obj.name;
+        distance=obj.distance;
+        searchArea=obj.searchArea;
+        zipCode=obj.zipCode;
+        rating=obj.rating;
+        setTimeout(function(){
+            performSearch("result_container",searchArea,zipCode,distance,type,name,rating);
+        }, 300);
+    }
 }
 
 
