@@ -180,6 +180,9 @@ $("#signout_button").on("click", function(){
     location.reload();
 })
 
+$(".subscribe-btn").on("click", function(){
+    $(".toggle-btn").click();
+})
 
 
 
