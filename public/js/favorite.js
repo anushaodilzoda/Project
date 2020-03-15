@@ -37,9 +37,7 @@ function prepResult(arr){
                 longitude: lon
             }
             console.log(obj);
-            displayFavResult("fav_result_container",obj);
-             
-          
+            displayFavResult("fav_result_container",obj);   
     }
 }
 
@@ -88,8 +86,7 @@ $("#fav_result_container").on("click",".delete_btn",function(){
         type: "DELETE",
         data: {data:arr}
     }).then(function() {
-        location.reload();
         console.log("Deleted from favorites");
     });
-
+location.reload();
 });

@@ -117,30 +117,36 @@ $("#signin_submit").on("click", function(){
     event.preventDefault();
     var enteredEmail=$("#signin_email").val();
     var enteredPassword=$("#signin_password").val();
-   
-if(getObjByEmail(enteredEmail)!=null){
-    for(var i=0; i<localStorage.length; i++){
-        var key=localStorage.key(i);
-        var expectedEmail=key.slice(key.indexOf("_")+1);
-        var expectedPassword=getObjByEmail(enteredEmail).password;
-        if(expectedEmail==enteredEmail && expectedPassword==enteredPassword){
-        
-        localStorage.setItem("Signed in user: ", enteredEmail);
-          $("#modal_5 .close").click();
 
-          $("#displayName").text("Hi, "+getObjByEmail(enteredEmail).name);
-        }else{
-            $("div#errMsg").css("color", "red");
-            $("div#errMsg").html("Your email or password is incorrect! Please try again!");
+    if(enteredEmail!="", enteredPassword!=""){
+        $("div#errMsg").css("color", "red");
+        $("div#errMsg").hide();
+        console.log("all fields are found");
+        var obj={
+            username: enteredEmail,
+            password: enteredPassword
         }
-        
+        console.log("obj to be send: "+obj.password);
+        $.ajax("/signIn", {
+            type: "GET",
+            data: obj
+        }).then(function(result) {
+            console.log(result);
+                if(result!="user not found"){
+                    localStorage.setItem("Signed in user: ", enteredEmail);
+                    localStorage.setItem("Signed in user name: ", result);
+                    $("#modal_5 .close").click();
+                    $("#displayName").text("Hi, "+localStorage.getItem("Signed in user name: "));
+                }else{
+                    $("div#errMsg").show();
+                    $("div#errMsg").html("Your email or password is incorrect! Please try again!");
+                }
+        });
+    }else{
+        console.log("NOT all fields are found");
+        $("div#errMsg").show();
+        $("div#errMsg").html("Please enter<br/>username and password");
     }
-}else{
-    $("div#errMsg").css("color", "red");
-    $("div#errMsg").html("No such user, Please sign up!");
-
-}
-
 })
 
 

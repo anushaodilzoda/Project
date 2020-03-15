@@ -27,19 +27,7 @@ app.get("/places", function(req, res) {
 });
 
 app.get("/view_favorites", function(req, res) {
-  // var signedInUser = null;
-  // if (typeof localStorage === "undefined" || localStorage === null) {
-  //   var LocalStorage = require('node-localstorage').LocalStorage;
-  //   localStorage = new LocalStorage('./scratch');
-  //   signedInUser = localStorage.getItem('Signed in user: ');
-  // }
-//   console.log("local storage:: >>>>>>>>" + signedInUser);
-// if(signedInUser=== null){
   res.sendFile(path.join(__dirname, "public/favorites.html"));
-// } else if(signedInUser=== null || signedInUser === "undefined") {
-//   // alert("Please sign in");
-//   console.log("Please sign in");
-// }
 });
 
 app.post("/submit", function(req, res) {
@@ -62,7 +50,6 @@ app.post("/submit", function(req, res) {
 });
 
 
-
 app.post("/addFav", function(req, res) {
       var str="";
 
@@ -81,7 +68,6 @@ app.post("/addFav", function(req, res) {
             }else{
               str=result[0].user_favorites+extract;
             }
-            console.log("obj to insert: "+str);
             connection.query(
               "UPDATE users SET user_favorites='"+str+"' WHERE user_email='"+user+"'",
               function(err, result) {
@@ -93,9 +79,6 @@ app.post("/addFav", function(req, res) {
 });
 
 app.post("/comment", function(req, res) {
-  // When using the MySQL package, we'd use ?s in place of any values to be inserted, which are then swapped out with corresponding elements in the array
-  // This helps us avoid an exploit known as SQL injection which we'd be open to if we used string concatenation
-  // https://en.wikipedia.org/wiki/SQL_injection
   connection.query(
     `INSERT INTO website_reviews(review_author, review_content) VALUES( ? , ?)`, [req.body.name, req.body.comment],
       function(err, result) {
@@ -135,17 +118,31 @@ app.delete("/deleteFav", function(req, res) {
             if(arr[i].includes(deleteData)) continue;
             newStr+=arr[i]+";;";
           }
-
           connection.query(
             "UPDATE users SET user_favorites='"+newStr+"' WHERE user_email='"+user+"'",
             function(err, result) {
                 if (err) throw err;
-                res.redirect("/view_favorites");
             }
         ); 
         }
   );
    });
+
+app.get("/signIn", function(req, res){
+  var username=(req.query.username);
+  var password=(req.query.password);
+  connection.query(
+    "SELECT user_name FROM users WHERE user_email='"+username+"' and user_password='"+password+"'",
+    function(err, result) {
+        if (err) throw err;
+        if(result[0]!=undefined){
+          res.send(result[0].user_name);
+        }else{
+          res.send("user not found");
+        }
+    }
+); 
+})
 
 
 
